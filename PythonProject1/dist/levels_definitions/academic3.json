@@ -1,0 +1,666 @@
+{
+  "level": 3,
+  "title": "AWL Sublist 3",
+  "questions": [
+    {
+      "word": "Alternative",
+      "definition": "Something different, or a choice of something else",
+      "options": [
+        "Sequence",
+        "Comments",
+        "Constraints",
+        "Alternative"
+      ],
+      "answer": "Alternative"
+    },
+    {
+      "word": "Circumstances",
+      "definition": "The conditions which make a situation the way it is",
+      "options": [
+        "Negative",
+        "Compensation",
+        "Circumstances",
+        "Initial"
+      ],
+      "answer": "Circumstances"
+    },
+    {
+      "word": "Comments",
+      "definition": "Spoken or written words to express an opinion",
+      "options": [
+        "Criteria",
+        "Alternative",
+        "Comments",
+        "Framework"
+      ],
+      "answer": "Comments"
+    },
+    {
+      "word": "Compensation",
+      "definition": "Money received for the loss or damage of something",
+      "options": [
+        "Sequence",
+        "Registered",
+        "Compensation",
+        "Convention"
+      ],
+      "answer": "Compensation"
+    },
+    {
+      "word": "Components",
+      "definition": "All the individual parts of a system or thing",
+      "options": [
+        "Shift",
+        "Components",
+        "Convention",
+        "Reliance"
+      ],
+      "answer": "Components"
+    },
+    {
+      "word": "Consent",
+      "definition": "Voluntary agreement or permission",
+      "options": [
+        "Consent",
+        "Sequence",
+        "Removed",
+        "Criteria"
+      ],
+      "answer": "Consent"
+    },
+    {
+      "word": "Considerable",
+      "definition": "Large or of noticeable importance",
+      "options": [
+        "Shift",
+        "Considerable",
+        "Negative",
+        "Proportion"
+      ],
+      "answer": "Considerable"
+    },
+    {
+      "word": "Constant",
+      "definition": "Unchanging, or happening frequently",
+      "options": [
+        "Constant",
+        "Layer",
+        "Coordination",
+        "Location"
+      ],
+      "answer": "Constant"
+    },
+    {
+      "word": "Constraints",
+      "definition": "Conditions that limit the freedom of a system or thing",
+      "options": [
+        "Constraints",
+        "Location",
+        "Excluded",
+        "Ensure"
+      ],
+      "answer": "Constraints"
+    },
+    {
+      "word": "Contribution",
+      "definition": "Money given or part played to achieve a group aim",
+      "options": [
+        "Convention",
+        "Deduction",
+        "Contribution",
+        "Corresponding"
+      ],
+      "answer": "Contribution"
+    },
+    {
+      "word": "Convention",
+      "definition": "A conference, or the accepted way of doing something",
+      "options": [
+        "Published",
+        "Partnership",
+        "Excluded",
+        "Convention"
+      ],
+      "answer": "Convention"
+    },
+    {
+      "word": "Coordination",
+      "definition": "Movement of the body, or management of a group",
+      "options": [
+        "Sex",
+        "Consent",
+        "Corresponding",
+        "Coordination"
+      ],
+      "answer": "Coordination"
+    },
+    {
+      "word": "Core",
+      "definition": "The central or most important part of a system or thing",
+      "options": [
+        "Reaction",
+        "Layer",
+        "Published",
+        "Core"
+      ],
+      "answer": "Core"
+    },
+    {
+      "word": "Corporate",
+      "definition": "Relating to a group, company or corporation",
+      "options": [
+        "Convention",
+        "Consent",
+        "Corporate",
+        "Partnership"
+      ],
+      "answer": "Corporate"
+    },
+    {
+      "word": "Corresponding",
+      "definition": "Similar to or anticipated",
+      "options": [
+        "Instance",
+        "Implies",
+        "Funds",
+        "Corresponding"
+      ],
+      "answer": "Corresponding"
+    },
+    {
+      "word": "Criteria",
+      "definition": "The rules or guidelines to test or evaluate something",
+      "options": [
+        "Considerable",
+        "Outcomes",
+        "Criteria",
+        "Circumstances"
+      ],
+      "answer": "Criteria"
+    },
+    {
+      "word": "Deduction",
+      "definition": "The act of finding a logical answer or opinion",
+      "options": [
+        "Link",
+        "Published",
+        "Maximum",
+        "Deduction"
+      ],
+      "answer": "Deduction"
+    },
+    {
+      "word": "Demonstrate",
+      "definition": "To show or explain how something works",
+      "options": [
+        "Published",
+        "Demonstrate",
+        "Minorities",
+        "Components"
+      ],
+      "answer": "Demonstrate"
+    },
+    {
+      "word": "Document",
+      "definition": "To record the details of a process or event",
+      "options": [
+        "Immigration",
+        "Consent",
+        "Document",
+        "Sequence"
+      ],
+      "answer": "Document"
+    },
+    {
+      "word": "Dominant",
+      "definition": "Stronger than others of the same group or type",
+      "options": [
+        "Immigration",
+        "Technical",
+        "Constraints",
+        "Dominant"
+      ],
+      "answer": "Dominant"
+    },
+    {
+      "word": "Emphasis",
+      "definition": "The importance or special consideration of something",
+      "options": [
+        "Validity",
+        "Initial",
+        "Shift",
+        "Emphasis"
+      ],
+      "answer": "Emphasis"
+    },
+    {
+      "word": "Ensure",
+      "definition": "To make certain that something will happen",
+      "options": [
+        "Ensure",
+        "Negative",
+        "Corresponding",
+        "Initial"
+      ],
+      "answer": "Ensure"
+    },
+    {
+      "word": "Excluded",
+      "definition": "Deliberately didn't include something",
+      "options": [
+        "Initial",
+        "Maximum",
+        "Convention",
+        "Excluded"
+      ],
+      "answer": "Excluded"
+    },
+    {
+      "word": "Framework",
+      "definition": "An outline or basic description of a complex process",
+      "options": [
+        "Removed",
+        "Partnership",
+        "Framework",
+        "Corresponding"
+      ],
+      "answer": "Framework"
+    },
+    {
+      "word": "Funds",
+      "definition": "Money available for a specific purpose",
+      "options": [
+        "Partnership",
+        "Funds",
+        "Ensure",
+        "Deduction"
+      ],
+      "answer": "Funds"
+    },
+    {
+      "word": "Illustrated",
+      "definition": "Made clear with pictures or examples",
+      "options": [
+        "Negative",
+        "Illustrated",
+        "Contribution",
+        "Document"
+      ],
+      "answer": "Illustrated"
+    },
+    {
+      "word": "Immigration",
+      "definition": "The act of arriving at a country in order to live there",
+      "options": [
+        "Link",
+        "Considerable",
+        "Immigration",
+        "Corporate"
+      ],
+      "answer": "Immigration"
+    },
+    {
+      "word": "Implies",
+      "definition": "Suggests something without saying directly",
+      "options": [
+        "Corporate",
+        "Sufficient",
+        "Components",
+        "Implies"
+      ],
+      "answer": "Implies"
+    },
+    {
+      "word": "Initial",
+      "definition": "Existing or occurring at the beginning",
+      "options": [
+        "Core",
+        "Dominant",
+        "Initial",
+        "Deduction"
+      ],
+      "answer": "Initial"
+    },
+    {
+      "word": "Instance",
+      "definition": "An occurrence of something",
+      "options": [
+        "Reliance",
+        "Implies",
+        "Demonstrate",
+        "Instance"
+      ],
+      "answer": "Instance"
+    },
+    {
+      "word": "Interaction",
+      "definition": "Communication, or the action of things on each other",
+      "options": [
+        "Interaction",
+        "Implies",
+        "Scheme",
+        "Reaction"
+      ],
+      "answer": "Interaction"
+    },
+    {
+      "word": "Justification",
+      "definition": "To explain or show that something is right or fair",
+      "options": [
+        "Validity",
+        "Justification",
+        "Framework",
+        "Link"
+      ],
+      "answer": "Justification"
+    },
+    {
+      "word": "Layer",
+      "definition": "A distinct band, thickness, or level of something",
+      "options": [
+        "Negative",
+        "Justification",
+        "Layer",
+        "Sequence"
+      ],
+      "answer": "Layer"
+    },
+    {
+      "word": "Link",
+      "definition": "A connection between two things",
+      "options": [
+        "Corresponding",
+        "Immigration",
+        "Link",
+        "Partnership"
+      ],
+      "answer": "Link"
+    },
+    {
+      "word": "Location",
+      "definition": "Place, position or coordinates of something",
+      "options": [
+        "Location",
+        "Reaction",
+        "Justification",
+        "Task"
+      ],
+      "answer": "Location"
+    },
+    {
+      "word": "Maximum",
+      "definition": "An upper limit of something",
+      "options": [
+        "Instance",
+        "Dominant",
+        "Reliance",
+        "Maximum"
+      ],
+      "answer": "Maximum"
+    },
+    {
+      "word": "Minorities",
+      "definition": "Groups of people who differ from the larger group",
+      "options": [
+        "Excluded",
+        "Convention",
+        "Document",
+        "Minorities"
+      ],
+      "answer": "Minorities"
+    },
+    {
+      "word": "Negative",
+      "definition": "Bad, less than zero, contradictory, or inconclusive",
+      "options": [
+        "Consent",
+        "Negative",
+        "Comments",
+        "Illustrated"
+      ],
+      "answer": "Negative"
+    },
+    {
+      "word": "Outcomes",
+      "definition": "The end results or consequences of a particular event",
+      "options": [
+        "Shift",
+        "Contribution",
+        "Link",
+        "Outcomes"
+      ],
+      "answer": "Outcomes"
+    },
+    {
+      "word": "Partnership",
+      "definition": "A relationship involving close cooperation",
+      "options": [
+        "Partnership",
+        "Funds",
+        "Justification",
+        "Compensation"
+      ],
+      "answer": "Partnership"
+    },
+    {
+      "word": "Philosophy",
+      "definition": "A system of beliefs that guide one's behavior",
+      "options": [
+        "Philosophy",
+        "Instance",
+        "Maximum",
+        "Ensure"
+      ],
+      "answer": "Philosophy"
+    },
+    {
+      "word": "Physical",
+      "definition": "Of the body, or having material existence",
+      "options": [
+        "Sequence",
+        "Dominant",
+        "Physical",
+        "Funds"
+      ],
+      "answer": "Physical"
+    },
+    {
+      "word": "Proportion",
+      "definition": "The size of something when compared to the whole",
+      "options": [
+        "Demonstrate",
+        "Proportion",
+        "Deduction",
+        "Ensure"
+      ],
+      "answer": "Proportion"
+    },
+    {
+      "word": "Published",
+      "definition": "Made known to the public through writing",
+      "options": [
+        "Published",
+        "Compensation",
+        "Coordination",
+        "Corporate"
+      ],
+      "answer": "Published"
+    },
+    {
+      "word": "Reaction",
+      "definition": "Behavior or action as a result of a particular event",
+      "options": [
+        "Reaction",
+        "Link",
+        "Convention",
+        "Framework"
+      ],
+      "answer": "Reaction"
+    },
+    {
+      "word": "Registered",
+      "definition": "Recorded and accepted by a group or organization",
+      "options": [
+        "Philosophy",
+        "Initial",
+        "Registered",
+        "Considerable"
+      ],
+      "answer": "Registered"
+    },
+    {
+      "word": "Reliance",
+      "definition": "The tendency to trust in someone or something",
+      "options": [
+        "Outcomes",
+        "Sex",
+        "Constraints",
+        "Reliance"
+      ],
+      "answer": "Reliance"
+    },
+    {
+      "word": "Removed",
+      "definition": "Took away",
+      "options": [
+        "Philosophy",
+        "Alternative",
+        "Removed",
+        "Location"
+      ],
+      "answer": "Removed"
+    },
+    {
+      "word": "Scheme",
+      "definition": "An organized plan, or an outline of a system or thing",
+      "options": [
+        "Location",
+        "Sufficient",
+        "Scheme",
+        "Sex"
+      ],
+      "answer": "Scheme"
+    },
+    {
+      "word": "Sequence",
+      "definition": "A series, or the order in which things are arranged",
+      "options": [
+        "Reliance",
+        "Sequence",
+        "Published",
+        "Illustrated"
+      ],
+      "answer": "Sequence"
+    },
+    {
+      "word": "Sex",
+      "definition": "The state of being either female or male",
+      "options": [
+        "Sex",
+        "Initial",
+        "Technical",
+        "Alternative"
+      ],
+      "answer": "Sex"
+    },
+    {
+      "word": "Shift",
+      "definition": "A change in position, direction or conditions",
+      "options": [
+        "Criteria",
+        "Reliance",
+        "Physical",
+        "Shift"
+      ],
+      "answer": "Shift"
+    },
+    {
+      "word": "Specified",
+      "definition": "Stated clearly or described accurately",
+      "options": [
+        "Alternative",
+        "Immigration",
+        "Sex",
+        "Specified"
+      ],
+      "answer": "Specified"
+    },
+    {
+      "word": "Sufficient",
+      "definition": "As much as is needed for a particular purpose",
+      "options": [
+        "Negative",
+        "Removed",
+        "Sufficient",
+        "Illustrated"
+      ],
+      "answer": "Sufficient"
+    },
+    {
+      "word": "Task",
+      "definition": "A piece of work that is either difficult or unpleasant",
+      "options": [
+        "Comments",
+        "Interaction",
+        "Considerable",
+        "Task"
+      ],
+      "answer": "Task"
+    },
+    {
+      "word": "Technical",
+      "definition": "Relating to specialized words of a specific subject",
+      "options": [
+        "Technical",
+        "Coordination",
+        "Instance",
+        "Circumstances"
+      ],
+      "answer": "Technical"
+    },
+    {
+      "word": "Techniques",
+      "definition": "Ways of doing an activity that requires skill",
+      "options": [
+        "Published",
+        "Initial",
+        "Techniques",
+        "Shift"
+      ],
+      "answer": "Techniques"
+    },
+    {
+      "word": "Technology",
+      "definition": "The study of practical uses of scientific discoveries",
+      "options": [
+        "Technology",
+        "Sequence",
+        "Removed",
+        "Outcomes"
+      ],
+      "answer": "Technology"
+    },
+    {
+      "word": "Validity",
+      "definition": "Acceptance or meaningfulness based on reason",
+      "options": [
+        "Sufficient",
+        "Technology",
+        "Validity",
+        "Location"
+      ],
+      "answer": "Validity"
+    },
+    {
+      "word": "Volume",
+      "definition": "A book which is published periodically or as a series",
+      "options": [
+        "Constant",
+        "Volume",
+        "Techniques",
+        "Sex"
+      ],
+      "answer": "Volume"
+    }
+  ]
+}

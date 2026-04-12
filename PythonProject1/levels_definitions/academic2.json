@@ -1,0 +1,666 @@
+{
+  "level": 2,
+  "title": "AWL Sublist 2",
+  "questions": [
+    {
+      "word": "Achieve",
+      "definition": "To successfully reach a goal or target",
+      "options": [
+        "Final",
+        "Region",
+        "Achieve",
+        "Potential"
+      ],
+      "answer": "Achieve"
+    },
+    {
+      "word": "Acquisition",
+      "definition": "The process of gaining something",
+      "options": [
+        "Traditional",
+        "Conduct",
+        "Normal",
+        "Acquisition"
+      ],
+      "answer": "Acquisition"
+    },
+    {
+      "word": "Administration",
+      "definition": "The management of an organization or system",
+      "options": [
+        "Administration",
+        "Participation",
+        "Maintenance",
+        "Focus"
+      ],
+      "answer": "Administration"
+    },
+    {
+      "word": "Affect",
+      "definition": "To influence or change something",
+      "options": [
+        "Primary",
+        "Aspects",
+        "Affect",
+        "Injury"
+      ],
+      "answer": "Affect"
+    },
+    {
+      "word": "Appropriate",
+      "definition": "Suitable for a particular purpose or situation",
+      "options": [
+        "Appropriate",
+        "Region",
+        "Conclusion",
+        "Affect"
+      ],
+      "answer": "Appropriate"
+    },
+    {
+      "word": "Aspects",
+      "definition": "Different parts of a situation or problem",
+      "options": [
+        "Normal",
+        "Aspects",
+        "Potential",
+        "Participation"
+      ],
+      "answer": "Aspects"
+    },
+    {
+      "word": "Assistance",
+      "definition": "Help given to complete a task",
+      "options": [
+        "Affect",
+        "Assistance",
+        "Administration",
+        "Obtained"
+      ],
+      "answer": "Assistance"
+    },
+    {
+      "word": "Categories",
+      "definition": "Groups used to classify things",
+      "options": [
+        "Conduct",
+        "Sought",
+        "Categories",
+        "Features"
+      ],
+      "answer": "Categories"
+    },
+    {
+      "word": "Chapter",
+      "definition": "A section of a book or a period of time",
+      "options": [
+        "Focus",
+        "Community",
+        "Chapter",
+        "Participation"
+      ],
+      "answer": "Chapter"
+    },
+    {
+      "word": "Commission",
+      "definition": "A group of people assigned to perform a task",
+      "options": [
+        "Chapter",
+        "Consumer",
+        "Commission",
+        "Investment"
+      ],
+      "answer": "Commission"
+    },
+    {
+      "word": "Community",
+      "definition": "A group of people living in the same area",
+      "options": [
+        "Site",
+        "Community",
+        "Obtained",
+        "Acquisition"
+      ],
+      "answer": "Community"
+    },
+    {
+      "word": "Complex",
+      "definition": "Difficult to understand due to many parts",
+      "options": [
+        "Purchase",
+        "Features",
+        "Complex",
+        "Investment"
+      ],
+      "answer": "Complex"
+    },
+    {
+      "word": "Computer",
+      "definition": "An electronic machine that processes data",
+      "options": [
+        "Achieve",
+        "Journal",
+        "Elements",
+        "Computer"
+      ],
+      "answer": "Computer"
+    },
+    {
+      "word": "Conclusion",
+      "definition": "A decision reached after careful thought",
+      "options": [
+        "Commission",
+        "Restricted",
+        "Primary",
+        "Conclusion"
+      ],
+      "answer": "Conclusion"
+    },
+    {
+      "word": "Conduct",
+      "definition": "To organize and carry out an activity",
+      "options": [
+        "Distinction",
+        "Equation",
+        "Conduct",
+        "Traditional"
+      ],
+      "answer": "Conduct"
+    },
+    {
+      "word": "Consequences",
+      "definition": "Results or effects of an action",
+      "options": [
+        "Consequences",
+        "Commission",
+        "Administration",
+        "Conclusion"
+      ],
+      "answer": "Consequences"
+    },
+    {
+      "word": "Construction",
+      "definition": "The process of building something",
+      "options": [
+        "Consequences",
+        "Construction",
+        "Appropriate",
+        "Computer"
+      ],
+      "answer": "Construction"
+    },
+    {
+      "word": "Consumer",
+      "definition": "A person who buys goods or services",
+      "options": [
+        "Consumer",
+        "Acquisition",
+        "Distinction",
+        "Computer"
+      ],
+      "answer": "Consumer"
+    },
+    {
+      "word": "Credit",
+      "definition": "To give recognition for something",
+      "options": [
+        "Design",
+        "Features",
+        "Credit",
+        "Final"
+      ],
+      "answer": "Credit"
+    },
+    {
+      "word": "Cultural",
+      "definition": "Relating to the customs of a group",
+      "options": [
+        "Region",
+        "Primary",
+        "Cultural",
+        "Consumer"
+      ],
+      "answer": "Cultural"
+    },
+    {
+      "word": "Design",
+      "definition": "A plan or arrangement of something",
+      "options": [
+        "Design",
+        "Consumer",
+        "Select",
+        "Traditional"
+      ],
+      "answer": "Design"
+    },
+    {
+      "word": "Distinction",
+      "definition": "A clear difference between things",
+      "options": [
+        "Primary",
+        "Distinction",
+        "Participation",
+        "Normal"
+      ],
+      "answer": "Distinction"
+    },
+    {
+      "word": "Elements",
+      "definition": "Basic parts of something",
+      "options": [
+        "Chapter",
+        "Journal",
+        "Elements",
+        "Administration"
+      ],
+      "answer": "Elements"
+    },
+    {
+      "word": "Equation",
+      "definition": "A statement showing two things are equal",
+      "options": [
+        "Equation",
+        "Administration",
+        "Elements",
+        "Focus"
+      ],
+      "answer": "Equation"
+    },
+    {
+      "word": "Evaluation",
+      "definition": "The act of judging value or quality",
+      "options": [
+        "Maintenance",
+        "Evaluation",
+        "Previous",
+        "Resident"
+      ],
+      "answer": "Evaluation"
+    },
+    {
+      "word": "Features",
+      "definition": "Important or noticeable parts of something",
+      "options": [
+        "Features",
+        "Categories",
+        "Conclusion",
+        "Chapter"
+      ],
+      "answer": "Features"
+    },
+    {
+      "word": "Final",
+      "definition": "Last in a sequence",
+      "options": [
+        "Community",
+        "Final",
+        "Purchase",
+        "Construction"
+      ],
+      "answer": "Final"
+    },
+    {
+      "word": "Focus",
+      "definition": "The center of attention or interest",
+      "options": [
+        "Focus",
+        "Equation",
+        "Obtained",
+        "Acquisition"
+      ],
+      "answer": "Focus"
+    },
+    {
+      "word": "Impact",
+      "definition": "A strong effect on something",
+      "options": [
+        "Security",
+        "Impact",
+        "Consequences",
+        "Affect"
+      ],
+      "answer": "Impact"
+    },
+    {
+      "word": "Injury",
+      "definition": "Physical harm or damage to the body",
+      "options": [
+        "Construction",
+        "Cultural",
+        "Injury",
+        "Range"
+      ],
+      "answer": "Injury"
+    },
+    {
+      "word": "Institute",
+      "definition": "An organization for education or research",
+      "options": [
+        "Consequences",
+        "Investment",
+        "Obtained",
+        "Institute"
+      ],
+      "answer": "Institute"
+    },
+    {
+      "word": "Investment",
+      "definition": "Spending money or time for future benefit",
+      "options": [
+        "Categories",
+        "Investment",
+        "Items",
+        "Perceived"
+      ],
+      "answer": "Investment"
+    },
+    {
+      "word": "Items",
+      "definition": "Individual things in a list or group",
+      "options": [
+        "Community",
+        "Strategies",
+        "Items",
+        "Computer"
+      ],
+      "answer": "Items"
+    },
+    {
+      "word": "Journal",
+      "definition": "A publication about a specific subject",
+      "options": [
+        "Consequences",
+        "Regulations",
+        "Achieve",
+        "Journal"
+      ],
+      "answer": "Journal"
+    },
+    {
+      "word": "Maintenance",
+      "definition": "Keeping something in good condition",
+      "options": [
+        "Impact",
+        "Aspects",
+        "Maintenance",
+        "Participation"
+      ],
+      "answer": "Maintenance"
+    },
+    {
+      "word": "Normal",
+      "definition": "Usual or typical",
+      "options": [
+        "Administration",
+        "Normal",
+        "Journal",
+        "Credit"
+      ],
+      "answer": "Normal"
+    },
+    {
+      "word": "Obtained",
+      "definition": "Got or gained something",
+      "options": [
+        "Transfer",
+        "Obtained",
+        "Survey",
+        "Credit"
+      ],
+      "answer": "Obtained"
+    },
+    {
+      "word": "Participation",
+      "definition": "The act of taking part in something",
+      "options": [
+        "Consequences",
+        "Participation",
+        "Resources",
+        "Administration"
+      ],
+      "answer": "Participation"
+    },
+    {
+      "word": "Perceived",
+      "definition": "Understood or believed in a certain way",
+      "options": [
+        "Strategies",
+        "Evaluation",
+        "Computer",
+        "Perceived"
+      ],
+      "answer": "Perceived"
+    },
+    {
+      "word": "Positive",
+      "definition": "Confident or certain about something",
+      "options": [
+        "Positive",
+        "Resources",
+        "Sought",
+        "Range"
+      ],
+      "answer": "Positive"
+    },
+    {
+      "word": "Potential",
+      "definition": "The ability to develop or succeed",
+      "options": [
+        "Cultural",
+        "Normal",
+        "Transfer",
+        "Potential"
+      ],
+      "answer": "Potential"
+    },
+    {
+      "word": "Previous",
+      "definition": "Happening before something else",
+      "options": [
+        "Range",
+        "Previous",
+        "Conduct",
+        "Construction"
+      ],
+      "answer": "Previous"
+    },
+    {
+      "word": "Primary",
+      "definition": "Most important",
+      "options": [
+        "Primary",
+        "Journal",
+        "Features",
+        "Computer"
+      ],
+      "answer": "Primary"
+    },
+    {
+      "word": "Purchase",
+      "definition": "To buy something",
+      "options": [
+        "Region",
+        "Aspects",
+        "Purchase",
+        "Distinction"
+      ],
+      "answer": "Purchase"
+    },
+    {
+      "word": "Range",
+      "definition": "The limits between the highest and lowest values",
+      "options": [
+        "Aspects",
+        "Survey",
+        "Region",
+        "Range"
+      ],
+      "answer": "Range"
+    },
+    {
+      "word": "Region",
+      "definition": "A specific area of land",
+      "options": [
+        "Credit",
+        "Cultural",
+        "Focus",
+        "Region"
+      ],
+      "answer": "Region"
+    },
+    {
+      "word": "Regulations",
+      "definition": "Official rules",
+      "options": [
+        "Assistance",
+        "Regulations",
+        "Design",
+        "Strategies"
+      ],
+      "answer": "Regulations"
+    },
+    {
+      "word": "Relevant",
+      "definition": "Closely connected to the topic",
+      "options": [
+        "Investment",
+        "Relevant",
+        "Focus",
+        "Impact"
+      ],
+      "answer": "Relevant"
+    },
+    {
+      "word": "Resident",
+      "definition": "A person who lives in a place",
+      "options": [
+        "Resident",
+        "Features",
+        "Injury",
+        "Restricted"
+      ],
+      "answer": "Resident"
+    },
+    {
+      "word": "Resources",
+      "definition": "Materials or assets that can be used",
+      "options": [
+        "Affect",
+        "Obtained",
+        "Resources",
+        "Construction"
+      ],
+      "answer": "Resources"
+    },
+    {
+      "word": "Restricted",
+      "definition": "Limited or controlled",
+      "options": [
+        "Equation",
+        "Survey",
+        "Range",
+        "Restricted"
+      ],
+      "answer": "Restricted"
+    },
+    {
+      "word": "Security",
+      "definition": "Protection from danger or loss",
+      "options": [
+        "Appropriate",
+        "Potential",
+        "Security",
+        "Achieve"
+      ],
+      "answer": "Security"
+    },
+    {
+      "word": "Sought",
+      "definition": "Tried to find or obtain",
+      "options": [
+        "Focus",
+        "Restricted",
+        "Strategies",
+        "Sought"
+      ],
+      "answer": "Sought"
+    },
+    {
+      "word": "Select",
+      "definition": "To choose carefully",
+      "options": [
+        "Administration",
+        "Acquisition",
+        "Items",
+        "Select"
+      ],
+      "answer": "Select"
+    },
+    {
+      "word": "Site",
+      "definition": "A place where something happens or exists",
+      "options": [
+        "Investment",
+        "Positive",
+        "Security",
+        "Site"
+      ],
+      "answer": "Site"
+    },
+    {
+      "word": "Strategies",
+      "definition": "Plans made to achieve a goal",
+      "options": [
+        "Sought",
+        "Purchase",
+        "Strategies",
+        "Conclusion"
+      ],
+      "answer": "Strategies"
+    },
+    {
+      "word": "Survey",
+      "definition": "A set of questions used to collect data",
+      "options": [
+        "Conduct",
+        "Positive",
+        "Survey",
+        "Items"
+      ],
+      "answer": "Survey"
+    },
+    {
+      "word": "Text",
+      "definition": "Written words in a document",
+      "options": [
+        "Features",
+        "Distinction",
+        "Text",
+        "Survey"
+      ],
+      "answer": "Text"
+    },
+    {
+      "word": "Traditional",
+      "definition": "Following long-established customs",
+      "options": [
+        "Features",
+        "Acquisition",
+        "Traditional",
+        "Equation"
+      ],
+      "answer": "Traditional"
+    },
+    {
+      "word": "Transfer",
+      "definition": "To move something from one place to another",
+      "options": [
+        "Sought",
+        "Transfer",
+        "Acquisition",
+        "Conclusion"
+      ],
+      "answer": "Transfer"
+    }
+  ]
+}
