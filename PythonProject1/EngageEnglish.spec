@@ -5,7 +5,12 @@ a = Analysis(
     ['main.py'],
     pathex=[],
     binaries=[],
-    datas=[('levels', 'levels'), ('progress.json', '.'), ('wrong.wav', '.')],
+    datas=[
+        ('levels', 'levels'),
+        ('levels_definitions', 'levels_definitions'),
+        ('assets', 'assets'),
+        ('progress.json', '.'),
+    ],
     hiddenimports=[],
     hookspath=[],
     hooksconfig={},

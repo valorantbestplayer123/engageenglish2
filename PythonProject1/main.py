@@ -196,63 +196,100 @@ class GlowCard(ctk.CTkFrame):
             self.bind("<Leave>", lambda _: self.configure(fg_color=C["card"]))
 
 
-class PulsingDot(tk.Canvas):
-    """A small animated pulsing circle (used as an accent decoration)."""
-
-    def __init__(self, master, color="#7C3AED", size=10, **kwargs):
-        super().__init__(master, width=size * 2, height=size * 2,
-                         bg=C["surface"], highlightthickness=0, **kwargs)
-        self._color = color
-        self._size = size
-        self._phase = 0
-        self._oval = self.create_oval(2, 2, size * 2 - 2, size * 2 - 2,
-                                      fill=color, outline="")
-        self._pulse()
-
-    def _pulse(self):
-        self._phase = (self._phase + 0.06) % (2 * 3.14159)
-        import math
-        alpha = 0.55 + 0.45 * math.sin(self._phase)
-        r, g, b = int(0x7C + (0xC0 - 0x7C) * alpha), \
-                  int(0x3A + (0x84 - 0x3A) * alpha), \
-                  int(0xED + (0xFC - 0xED) * alpha)
-        color = f"#{r:02x}{g:02x}{b:02x}"
-        self.itemconfig(self._oval, fill=color)
-        self.after(40, self._pulse)
+# Removed PulsingDot - replaced with static minimalist elements
 
 
-class TimerArc(tk.Canvas):
-    """Circular countdown timer with colour transition green→yellow→red."""
+class ProminentTimer(ctk.CTkFrame):
+    """Prominent timer display with large digits and progress bar."""
 
-    def __init__(self, master, size=88, bg_color=C["surface"], **kwargs):
-        super().__init__(master, width=size, height=size,
-                         bg=bg_color, highlightthickness=0, **kwargs)
-        pad = 6
-        self._size = size
-        self._track = self.create_arc(
-            pad, pad, size - pad, size - pad,
-            start=90, extent=359.9,
-            style="arc", outline=C["border"], width=5
+    def __init__(self, master, max_time, **kwargs):
+        super().__init__(master, fg_color="transparent", **kwargs)
+        self._max_time = max_time
+        self._time_left = max_time
+        self._timer_id = None
+        self._callback = None
+
+        # Container
+        container = ctk.CTkFrame(self, fg_color=C["surface"], corner_radius=12, width=200, height=80)
+        container.pack(fill="both", expand=True)
+
+        # Icon
+        icon_label = ctk.CTkLabel(container, text="⏱", font=("Helvetica", 20), text_color=C["text_dim"])
+        icon_label.place(relx=0.05, rely=0.5, anchor="center")
+
+        # Time display (large)
+        self._time_label = ctk.CTkLabel(
+            container,
+            text=f"{self._format_time(max_time)}",
+            font=("Helvetica", 32, "bold"),
+            text_color=C["green"]
         )
-        self._arc = self.create_arc(
-            pad, pad, size - pad, size - pad,
-            start=90, extent=359.9,
-            style="arc", outline=C["green"], width=5
-        )
-        self._text = self.create_text(
-            size // 2, size // 2,
-            text="", font=("Helvetica", 14, "bold"), fill=C["green"]
-        )
+        self._time_label.place(relx=0.35, rely=0.5, anchor="center")
 
-    def update_arc(self, remaining, total):
-        ratio = max(remaining / total, 0)
-        extent = ratio * 359.9
-        if ratio > 0.5:
-            color = hex_lerp(C["gold"], C["green"], (ratio - 0.5) * 2)
+        # Progress bar
+        self._progress_bar = ctk.CTkProgressBar(
+            container,
+            width=70,
+            height=6,
+            progress_color=C["green"],
+            fg_color=C["border"],
+            corner_radius=3
+        )
+        self._progress_bar.place(relx=0.85, rely=0.5, anchor="center")
+        self._progress_bar.set(1.0)
+
+    def _format_time(self, seconds):
+        if seconds < 10:
+            return f"{seconds}"
+        elif seconds < 60:
+            return f"{seconds}"
         else:
-            color = hex_lerp(C["red"], C["gold"], ratio * 2)
-        self.itemconfig(self._arc, extent=extent, outline=color)
-        self.itemconfig(self._text, text=str(remaining), fill=color)
+            mins = seconds // 60
+            secs = seconds % 60
+            return f"{mins}:{secs:02d}"
+
+    def update_time(self, time_left, callback=None):
+        self._time_left = time_left
+        ratio = max(time_left / self._max_time, 0)
+
+        # Update text
+        self._time_label.configure(text=self._format_time(time_left))
+
+        # Update colors based on time remaining
+        if ratio > 0.5:
+            color = C["green"]
+        elif ratio > 0.25:
+            color = C["gold"]
+        else:
+            color = C["red"]
+        self._time_label.configure(text_color=color)
+        self._progress_bar.configure(progress_color=color)
+
+        # Update progress bar
+        self._progress_bar.set(ratio)
+
+        # Callback for timeout
+        if time_left <= 0 and callback:
+            callback()
+
+    def start(self, callback=None):
+        """Start the timer countdown."""
+        self._callback = callback
+        self._tick()
+
+    def _tick(self):
+        if self._time_left > 0:
+            self._time_left -= 1
+            self.update_time(self._time_left)
+            self._timer_id = self.after(1000, self._tick)
+        elif self._callback:
+            self._callback()
+
+    def stop(self):
+        """Stop the timer and cleanup."""
+        if self._timer_id:
+            self.after_cancel(self._timer_id)
+            self._timer_id = None
 
 
 class HpDisplay(ctk.CTkFrame):
@@ -283,62 +320,10 @@ class HpDisplay(ctk.CTkFrame):
         self._label.configure(text=f"HP {hp}/{self._max_hp}", text_color=color)
 
 
-class Confetti(tk.Canvas):
-    """Falling confetti animation for celebration screens."""
-
-    def __init__(self, master, width, height, **kwargs):
-        super().__init__(master, width=width, height=height,
-                         bg=C["success_bg"], highlightthickness=0, **kwargs)
-        self._w = width
-        self._h = height
-        self._pieces = []
-        colors = [C["accent_glow"], C["teal"], C["gold"], C["green"], C["text"]]
-        for _ in range(60):
-            x = random.randint(0, width)
-            y = random.randint(-height, 0)
-            sz = random.randint(5, 11)
-            color = random.choice(colors)
-            oid = self.create_oval(x, y, x + sz, y + sz, fill=color, outline="")
-            self._pieces.append((oid, random.uniform(1.5, 3.5),
-                                  random.uniform(-0.5, 0.5)))
-        self._animate()
-
-    def _animate(self):
-        for oid, vy, vx in self._pieces:
-            self.move(oid, vx, vy)
-            coords = self.coords(oid)
-            if not coords:
-                continue
-            if coords[1] > self._h:
-                x = random.randint(0, self._w)
-                sz = coords[2] - coords[0]
-                self.coords(oid, x, -sz, x + sz, 0)
-        self.after(28, self._animate)
+# Removed Confetti - replaced with simple badge animation for success screens
 
 
-class AnimatedBackground(ctk.CTkFrame):
-    """Slowly cycles through a palette of dark background colours."""
-
-    PALETTE = ["#0F0F1A", "#0D1B2A", "#12082A", "#0A1628", "#0F0F1A"]
-
-    def __init__(self, master, **kwargs):
-        super().__init__(master, **kwargs)
-        self._ci = 0
-        self._ni = 1
-        self._step = 0
-        self._steps = 120
-        self._tick()
-
-    def _tick(self):
-        t = self._step / self._steps
-        color = hex_lerp(self.PALETTE[self._ci], self.PALETTE[self._ni], t)
-        self.configure(fg_color=color)
-        self._step += 1
-        if self._step > self._steps:
-            self._step = 0
-            self._ci = self._ni
-            self._ni = (self._ni + 1) % len(self.PALETTE)
-        self.after(60, self._tick)
+# Removed AnimatedBackground - using static minimalist backgrounds
 
 
 # ── Main Menu ──────────────────────────────────────────────────────────────────
@@ -347,30 +332,34 @@ class MainMenuFrame(ctk.CTkFrame):
     def __init__(self, master):
         super().__init__(master, fg_color=C["bg"])
 
-        bg = AnimatedBackground(self, corner_radius=0)
+        # Static minimalist background with subtle gradient effect
+        bg = ctk.CTkFrame(self, fg_color=C["surface"], corner_radius=0)
         bg.place(relx=0, rely=0, relwidth=1, relheight=1)
 
         center = ctk.CTkFrame(bg, fg_color="transparent")
         center.place(relx=0.5, rely=0.5, anchor="center")
 
-        accent_bar = ctk.CTkFrame(center, fg_color=C["accent"], width=80, height=4, corner_radius=2)
-        accent_bar.pack(pady=(0, 18))
+        # Clean accent bar
+        accent_bar = ctk.CTkFrame(center, fg_color=C["accent"], width=60, height=3, corner_radius=2)
+        accent_bar.pack(pady=(0, 24))
 
+        # Title
         title_lbl = ctk.CTkLabel(
             center,
             text="EngageEnglish",
-            font=("Selfie", 96),
+            font=("Selfie", 84),
             text_color=C["text"],
         )
         title_lbl.pack()
 
+        # Tagline
         tagline = ctk.CTkLabel(
             center,
-            text="Master Academic English — One Level at a Time",
-            font=("Helvetica", 18),
+            text="Master Academic English",
+            font=("Helvetica", 16),
             text_color=C["text_dim"],
         )
-        tagline.pack(pady=(6, 48))
+        tagline.pack(pady=(8, 56))
 
         btn_frame = ctk.CTkFrame(center, fg_color="transparent")
         btn_frame.pack()
@@ -379,35 +368,35 @@ class MainMenuFrame(ctk.CTkFrame):
             btn_frame,
             text="▶  Play",
             variant="primary",
-            width=300, height=64,
-            font=("Helvetica", 22, "bold"),
+            width=280, height=58,
+            font=("Helvetica", 20, "bold"),
             command=master.show_game_modes,
-        ).pack(pady=10)
+        ).pack(pady=12)
 
         ModernButton(
             btn_frame,
             text="✕  Quit",
             variant="ghost",
-            width=300, height=52,
-            font=("Helvetica", 18),
+            width=280, height=48,
+            font=("Helvetica", 17),
             command=master.destroy,
-        ).pack(pady=6)
+        ).pack(pady=8)
 
         footer = ctk.CTkLabel(
             bg,
             text="EngageEnglish 2025-2026  ·  @wawa.jett_wonyoung",
-            font=("Helvetica", 12),
-            text_color=C["text_muted"],
-        )
-        footer.place(relx=0.5, rely=0.97, anchor="center")
-
-        tip = ctk.CTkLabel(
-            bg,
-            text="Press  F11  to toggle fullscreen",
             font=("Helvetica", 11),
             text_color=C["text_muted"],
         )
-        tip.place(relx=0.98, rely=0.97, anchor="se")
+        footer.place(relx=0.5, rely=0.96, anchor="center")
+
+        tip = ctk.CTkLabel(
+            bg,
+            text="F11: Fullscreen",
+            font=("Helvetica", 10),
+            text_color=C["text_muted"],
+        )
+        tip.place(relx=0.98, rely=0.96, anchor="se")
 
 
 # ── Game Mode Selection ────────────────────────────────────────────────────────
@@ -416,63 +405,59 @@ class GameModesFrame(ctk.CTkFrame):
     def __init__(self, master):
         super().__init__(master, fg_color=C["bg"])
 
-        header = ctk.CTkFrame(self, fg_color=C["surface"], height=90, corner_radius=0)
+        header = ctk.CTkFrame(self, fg_color=C["surface"], height=80, corner_radius=0)
         header.pack(fill="x")
         ctk.CTkLabel(header, text="Choose Game Mode",
-                     font=("Selfie", 52), text_color=C["text"]).pack(pady=22)
-
-        subtitle = ctk.CTkLabel(self, text="Select a challenge and start learning",
-                                font=("Helvetica", 16), text_color=C["text_dim"])
-        subtitle.pack(pady=(28, 40))
+                     font=("Selfie", 48), text_color=C["text"]).pack(pady=20)
 
         modes_row = ctk.CTkFrame(self, fg_color="transparent")
-        modes_row.pack(pady=10)
+        modes_row.pack(pady=32)
 
         self._make_mode_card(
             modes_row,
             icon="🔗",
             title="Word Synonyms",
-            desc="Drag & drop words to match\nthem with their synonyms.",
+            desc="Drag & drop words to match them with their synonyms",
             color=C["accent"],
             command=master.show_level_select,
-        ).pack(side="left", padx=30)
+        ).pack(side="left", padx=24)
 
         self._make_mode_card(
             modes_row,
             icon="📖",
             title="Word Definitions",
-            desc="Read a definition and choose\nthe correct word from 4 options.",
+            desc="Read a definition and choose the correct word",
             color=C["teal"],
             command=master.show_definition_level_select,
-        ).pack(side="left", padx=30)
+        ).pack(side="left", padx=24)
 
         ModernButton(
             self,
-            text="⬅  Back to Menu",
+            text="⬅  Back",
             variant="ghost",
-            width=220, height=46,
-            font=("Helvetica", 16),
+            width=200, height=42,
+            font=("Helvetica", 15),
             command=master.show_main_menu,
-        ).pack(pady=40)
+        ).pack(pady=32)
 
     @staticmethod
     def _make_mode_card(parent, icon, title, desc, color, command):
-        card = GlowCard(parent, hoverable=True, width=340, height=260, corner_radius=20)
+        card = GlowCard(parent, hoverable=True, width=320, height=240, corner_radius=18)
 
-        icon_lbl = ctk.CTkLabel(card, text=icon, font=("Helvetica", 52),
+        icon_lbl = ctk.CTkLabel(card, text=icon, font=("Helvetica", 48),
                                  text_color=color)
-        icon_lbl.pack(pady=(30, 6))
+        icon_lbl.pack(pady=(28, 4))
 
-        ctk.CTkLabel(card, text=title, font=("Helvetica", 22, "bold"),
+        ctk.CTkLabel(card, text=title, font=("Helvetica", 20, "bold"),
                      text_color=C["text"]).pack()
 
-        ctk.CTkLabel(card, text=desc, font=("Helvetica", 13),
-                     text_color=C["text_dim"], justify="center").pack(pady=(6, 18))
+        ctk.CTkLabel(card, text=desc, font=("Helvetica", 12),
+                     text_color=C["text_dim"], wraplength=280, justify="center").pack(pady=(8, 16))
 
         ModernButton(card, text="Select", variant="primary",
-                     width=180, height=42,
-                     font=("Helvetica", 15, "bold"),
-                     command=command).pack(pady=(0, 20))
+                     width=160, height=40,
+                     font=("Helvetica", 14, "bold"),
+                     command=command).pack(pady=(0, 18))
 
         return card
 
@@ -483,16 +468,16 @@ class LevelSelectFrame(ctk.CTkFrame):
     def __init__(self, master):
         super().__init__(master, fg_color=C["bg"])
 
-        header = ctk.CTkFrame(self, fg_color=C["surface"], height=90, corner_radius=0)
+        header = ctk.CTkFrame(self, fg_color=C["surface"], height=80, corner_radius=0)
         header.pack(fill="x")
-        ctk.CTkLabel(header, text="🔗  Word Synonym Levels",
-                     font=("Selfie", 46), text_color=C["text"]).pack(pady=22)
+        ctk.CTkLabel(header, text="🔗  Word Synonyms",
+                     font=("Selfie", 44), text_color=C["text"]).pack(pady=20)
 
-        ctk.CTkLabel(self, text="Complete a level to unlock the next one",
-                     font=("Helvetica", 15), text_color=C["text_dim"]).pack(pady=(18, 8))
+        ctk.CTkLabel(self, text="Complete levels to unlock the next one",
+                     font=("Helvetica", 14), text_color=C["text_dim"]).pack(pady=(12, 6))
 
         panel = ctk.CTkScrollableFrame(self, fg_color=C["bg"], corner_radius=0)
-        panel.pack(padx=40, pady=8, fill="both", expand=True)
+        panel.pack(padx=32, pady=6, fill="both", expand=True)
 
         levels = _scan_levels(LEVELS_DIR)
 
@@ -508,48 +493,48 @@ class LevelSelectFrame(ctk.CTkFrame):
                 r, c = divmod(i, cols)
                 card = self._make_level_card(panel, level_num, title, unlocked, score,
                                              command=lambda p=path: master.show_game(p))
-                card.grid(row=r, column=c, padx=18, pady=18, sticky="nsew")
+                card.grid(row=r, column=c, padx=14, pady=14, sticky="nsew")
 
         ModernButton(
             self,
             text="⬅  Back",
             variant="ghost",
-            width=200, height=44,
-            font=("Helvetica", 15),
+            width=180, height=40,
+            font=("Helvetica", 14),
             command=master.show_main_menu,
-        ).pack(pady=16)
+        ).pack(pady=14)
 
     @staticmethod
     def _make_level_card(parent, level_num, title, unlocked, score, command):
-        card = GlowCard(parent, width=360, height=170, corner_radius=16,
+        card = GlowCard(parent, width=340, height=160, corner_radius=14,
                         fg_color=C["card"] if unlocked else C["surface"])
 
         badge_color = C["accent"] if unlocked else C["text_muted"]
         badge_text = f"Level {level_num}"
-        ctk.CTkLabel(card, text=badge_text, font=("Helvetica", 12, "bold"),
-                     text_color=badge_color).pack(anchor="w", padx=18, pady=(14, 2))
+        ctk.CTkLabel(card, text=badge_text, font=("Helvetica", 11, "bold"),
+                     text_color=badge_color).pack(anchor="w", padx=16, pady=(12, 2))
 
-        ctk.CTkLabel(card, text=title, font=("Helvetica", 15, "bold"),
+        ctk.CTkLabel(card, text=title, font=("Helvetica", 14, "bold"),
                      text_color=C["text"] if unlocked else C["text_muted"],
-                     wraplength=320, justify="left").pack(anchor="w", padx=18)
+                     wraplength=300, justify="left").pack(anchor="w", padx=16)
 
         if score is not None:
             stars = "★" * _score_stars(score) + "☆" * (3 - _score_stars(score))
             ctk.CTkLabel(card, text=f"{stars}  {score}%",
-                         font=("Helvetica", 13), text_color=C["gold"]).pack(anchor="w", padx=18)
+                         font=("Helvetica", 12), text_color=C["gold"]).pack(anchor="w", padx=16, pady=(4, 0))
 
         btn_row = ctk.CTkFrame(card, fg_color="transparent")
-        btn_row.pack(anchor="w", padx=14, pady=(6, 12))
+        btn_row.pack(anchor="w", padx=12, pady=(8, 12))
 
         if unlocked:
             ModernButton(btn_row, text="▶  Play", variant="primary",
-                         width=130, height=38,
-                         font=("Helvetica", 14, "bold"),
+                         width=120, height=36,
+                         font=("Helvetica", 13, "bold"),
                          command=command).pack(side="left")
         else:
             ctk.CTkLabel(btn_row, text="🔒  Locked",
-                         font=("Helvetica", 14),
-                         text_color=C["text_muted"]).pack(side="left", padx=6)
+                         font=("Helvetica", 13),
+                         text_color=C["text_muted"]).pack(side="left", padx=4)
 
         return card
 
@@ -560,16 +545,16 @@ class DefinitionLevelSelectFrame(ctk.CTkFrame):
     def __init__(self, master):
         super().__init__(master, fg_color=C["bg"])
 
-        header = ctk.CTkFrame(self, fg_color=C["surface"], height=90, corner_radius=0)
+        header = ctk.CTkFrame(self, fg_color=C["surface"], height=80, corner_radius=0)
         header.pack(fill="x")
-        ctk.CTkLabel(header, text="📖  Word Definition Levels",
-                     font=("Selfie", 46), text_color=C["text"]).pack(pady=22)
+        ctk.CTkLabel(header, text="📖  Word Definitions",
+                     font=("Selfie", 44), text_color=C["text"]).pack(pady=20)
 
         ctk.CTkLabel(self, text="Unlock levels step by step",
-                     font=("Helvetica", 15), text_color=C["text_dim"]).pack(pady=(18, 8))
+                     font=("Helvetica", 14), text_color=C["text_dim"]).pack(pady=(12, 6))
 
         panel = ctk.CTkScrollableFrame(self, fg_color=C["bg"], corner_radius=0)
-        panel.pack(padx=40, pady=8, fill="both", expand=True)
+        panel.pack(padx=32, pady=6, fill="both", expand=True)
 
         levels = _scan_levels(LEVELS_DEFINITIONS_DIR)
 
@@ -587,46 +572,46 @@ class DefinitionLevelSelectFrame(ctk.CTkFrame):
                     panel, level_num, title, unlocked, score,
                     command=lambda p=path: master.show_definition_mode(p)
                 )
-                card.grid(row=r, column=c, padx=14, pady=14, sticky="nsew")
+                card.grid(row=r, column=c, padx=12, pady=12, sticky="nsew")
 
         ModernButton(
             self,
             text="⬅  Back",
             variant="ghost",
-            width=200, height=44,
-            font=("Helvetica", 15),
+            width=180, height=40,
+            font=("Helvetica", 14),
             command=master.show_main_menu,
-        ).pack(pady=16)
+        ).pack(pady=14)
 
     @staticmethod
     def _make_def_level_card(parent, level_num, title, unlocked, score, command):
-        card = GlowCard(parent, width=270, height=160, corner_radius=14,
+        card = GlowCard(parent, width=250, height=150, corner_radius=12,
                         fg_color=C["card"] if unlocked else C["surface"])
 
         badge_color = C["teal"] if unlocked else C["text_muted"]
         ctk.CTkLabel(card, text=f"Level {level_num}",
-                     font=("Helvetica", 11, "bold"),
-                     text_color=badge_color).pack(anchor="w", padx=14, pady=(12, 2))
+                     font=("Helvetica", 10, "bold"),
+                     text_color=badge_color).pack(anchor="w", padx=12, pady=(10, 2))
 
-        ctk.CTkLabel(card, text=title, font=("Helvetica", 13, "bold"),
+        ctk.CTkLabel(card, text=title, font=("Helvetica", 12, "bold"),
                      text_color=C["text"] if unlocked else C["text_muted"],
-                     wraplength=240, justify="left").pack(anchor="w", padx=14)
+                     wraplength=220, justify="left").pack(anchor="w", padx=12)
 
         if score is not None:
             ctk.CTkLabel(card, text=f"Best: {score}%",
-                         font=("Helvetica", 11), text_color=C["gold"]).pack(anchor="w", padx=14)
+                         font=("Helvetica", 10), text_color=C["gold"]).pack(anchor="w", padx=12, pady=(2, 0))
 
         btn_row = ctk.CTkFrame(card, fg_color="transparent")
-        btn_row.pack(anchor="w", padx=10, pady=(6, 10))
+        btn_row.pack(anchor="w", padx=8, pady=(6, 10))
 
         if unlocked:
             ModernButton(btn_row, text="▶  Play", variant="primary",
-                         width=110, height=34,
-                         font=("Helvetica", 13, "bold"),
+                         width=100, height=32,
+                         font=("Helvetica", 12, "bold"),
                          command=command).pack(side="left")
         else:
             ctk.CTkLabel(btn_row, text="🔒  Locked",
-                         font=("Helvetica", 13),
+                         font=("Helvetica", 12),
                          text_color=C["text_muted"]).pack(side="left", padx=4)
 
         return card
@@ -696,6 +681,7 @@ class GameFrame(ctk.CTkFrame):
         self.draggables = []
         self.wrong_words = []
         self.level_start_time = time.time()
+        self._timer = None
 
         self._load_level()
 
@@ -709,7 +695,13 @@ class GameFrame(ctk.CTkFrame):
         self.time_left = self.max_time
 
         self._build_ui()
-        self._start_timer()
+        if self._timer:
+            self._timer.start(callback=self._on_timeout)
+
+    def _on_timeout(self):
+        """Handle timer timeout."""
+        self.hp = 0
+        self._show_game_over()
 
     def _load_level(self):
         with open(resource_path(self.level_path), "r", encoding="utf-8") as f:
@@ -725,33 +717,34 @@ class GameFrame(ctk.CTkFrame):
         self.matches = list(self.word_to_match.values())
 
     def _build_ui(self):
-        header = ctk.CTkFrame(self, fg_color=C["surface"], height=72, corner_radius=0)
+        header = ctk.CTkFrame(self, fg_color=C["surface"], height=64, corner_radius=0)
         header.pack(fill="x")
         header.pack_propagate(False)
 
         header_inner = ctk.CTkFrame(header, fg_color="transparent")
-        header_inner.pack(side="left", fill="both", expand=True, padx=24)
+        header_inner.pack(side="left", fill="both", expand=True, padx=20)
 
         lv = self.level_data.get("level", "")
         title_txt = self.level_data.get("title", "")
         ctk.CTkLabel(header_inner,
                      text=f"Level {lv}  ·  {title_txt}",
-                     font=("Helvetica", 18, "bold"),
-                     text_color=C["text"]).pack(side="left", pady=18)
+                     font=("Helvetica", 16, "bold"),
+                     text_color=C["text"]).pack(side="left", pady=16)
 
         ctk.CTkLabel(header_inner,
-                     text=self.level_data.get("instructions", "Drag each word onto its matching synonym."),
-                     font=("Helvetica", 12),
-                     text_color=C["text_dim"]).pack(side="left", padx=20, pady=18)
+                     text=self.level_data.get("instructions", "Drag words to match synonyms"),
+                     font=("Helvetica", 11),
+                     text_color=C["text_dim"]).pack(side="left", padx=16, pady=16)
 
         quit_btn = ModernButton(
             header, text="✕  Quit", variant="ghost",
-            width=110, height=38, font=("Helvetica", 13),
+            width=100, height=34, font=("Helvetica", 12),
             command=self.master.show_level_select,
         )
-        quit_btn.pack(side="right", padx=20, pady=16)
+        quit_btn.pack(side="right", padx=16, pady=14)
 
-        status_bar = ctk.CTkFrame(self, fg_color=C["panel"], height=52, corner_radius=0)
+        # Status bar with prominent timer
+        status_bar = ctk.CTkFrame(self, fg_color=C["panel"], height=48, corner_radius=0)
         status_bar.pack(fill="x")
         status_bar.pack_propagate(False)
 
@@ -759,22 +752,23 @@ class GameFrame(ctk.CTkFrame):
         sb_inner.pack(expand=True, fill="both")
         sb_inner.columnconfigure(0, weight=1)
         sb_inner.columnconfigure(1, weight=0)
-        sb_inner.columnconfigure(2, weight=1)
+        sb_inner.columnconfigure(2, weight=0)
+        sb_inner.columnconfigure(3, weight=1)
 
         self._hp_display = HpDisplay(sb_inner, max_hp=self.max_hp)
-        self._hp_display.grid(row=0, column=0, padx=30, pady=8, sticky="w")
+        self._hp_display.grid(row=0, column=0, padx=24, pady=6, sticky="w")
 
         self._progress_label = ctk.CTkLabel(
             sb_inner,
             text=f"0 / {len(self.words)} matched",
-            font=("Helvetica", 13, "bold"),
+            font=("Helvetica", 12, "bold"),
             text_color=C["text_dim"],
         )
-        self._progress_label.grid(row=0, column=1, pady=8)
+        self._progress_label.grid(row=0, column=1, padx=12, pady=6)
 
-        self._timer_arc = TimerArc(sb_inner, size=38,
-                                    bg_color=C["panel"])
-        self._timer_arc.grid(row=0, column=2, padx=30, pady=7, sticky="e")
+        # Prominent timer in center
+        self._timer = ProminentTimer(sb_inner, max_time=self.max_time)
+        self._timer.grid(row=0, column=2, padx=20, pady=4)
 
         area = ctk.CTkFrame(self, fg_color=C["bg"])
         area.pack(fill="both", expand=True)
@@ -786,18 +780,18 @@ class GameFrame(ctk.CTkFrame):
         area = self._area
         n = len(self.words)
         max_rows = 9
-        v_spacing = 56
-        start_y = 30
+        v_spacing = 52
+        start_y = 28
 
         shuffled_words = self.words[:]
         random.shuffle(shuffled_words)
         for i, word in enumerate(shuffled_words):
             col = 0 if i < max_rows else 1
             row_idx = i % max_rows
-            x = 50 + col * 340
+            x = 48 + col * 320
             y = start_y + row_idx * v_spacing
             d = DraggableLabel(area, text=word, drop_handler=self._check_drop,
-                               width=290, height=44)
+                               width=280, height=42)
             d.place(x=x, y=y)
             d.original_pos = (x, y)
             d.match_answer = self.word_to_match[word]
@@ -809,15 +803,15 @@ class GameFrame(ctk.CTkFrame):
         for i, match_text in enumerate(shuffled_matches):
             col = 0 if i < max_rows else 1
             row_idx = i % max_rows
-            x = 820 + col * 340
+            x = 760 + col * 320
             y = start_y + row_idx * v_spacing
 
-            box = ctk.CTkFrame(area, width=270, height=44,
+            box = ctk.CTkFrame(area, width=260, height=42,
                                fg_color=C["target_box"], corner_radius=10)
             box.place(x=x, y=y)
 
             inner_lbl = ctk.CTkLabel(box, text=match_text,
-                                     font=("Helvetica", 14, "bold"),
+                                     font=("Helvetica", 13, "bold"),
                                      text_color=C["text"])
             inner_lbl.place(relx=0.5, rely=0.5, anchor="center")
 
@@ -825,14 +819,17 @@ class GameFrame(ctk.CTkFrame):
             box.occupied = False
             self.targets.append(box)
 
-    def _start_timer(self):
-        self._timer_arc.update_arc(self.time_left, self.max_time)
-        if self.time_left > 0:
-            self.time_left -= 1
-            self.after(1000, self._start_timer)
-        else:
-            self.hp = 0
-            self._show_game_over()
+    # Removed _start_timer - now handled by ProminentTimer component
+
+    def cleanup(self):
+        """Clean up timer when frame is destroyed."""
+        if self._timer:
+            self._timer.stop()
+
+    def destroy(self):
+        """Override destroy to ensure cleanup."""
+        self.cleanup()
+        super().destroy()
 
     def _check_drop(self, widget):
         wx = widget.winfo_rootx() + widget.winfo_width() // 2
@@ -910,47 +907,51 @@ class GameFrame(ctk.CTkFrame):
         self._build_success_screen(correct, total, pct, f"{minutes}m {seconds}s", [])
 
     def _build_success_screen(self, correct, total, pct, time_str, wrong_words):
-        self.configure(fg_color=C["success_bg"])
+        self.configure(fg_color=C["bg"])
 
-        confetti = Confetti(self, width=APP_WIDTH, height=APP_HEIGHT)
-        confetti.place(x=0, y=0)
-
-        panel = GlowCard(self, width=680, height=520, corner_radius=24,
-                         fg_color=C["card"])
+        # Minimalist success panel
+        panel = GlowCard(self, width=640, height=480, corner_radius=20,
+                         fg_color=C["surface"])
         panel.place(relx=0.5, rely=0.5, anchor="center")
 
         level_num = int(self.level_data.get("level", 1))
         level_title = self.level_data.get("title", "")
 
+        # Simple badge
+        badge = ctk.CTkFrame(panel, fg_color=C["green"], corner_radius=20, width=60, height=60)
+        badge.place(relx=0.5, rely=0.12, anchor="center")
+        ctk.CTkLabel(badge, text="✓", font=("Helvetica", 32, "bold"),
+                     text_color=C["white"]).place(relx=0.5, rely=0.5, anchor="center")
+
         ctk.CTkLabel(panel, text=f"Level {level_num}  ·  {level_title}",
-                     font=("Helvetica", 14), text_color=C["text_muted"]).pack(pady=(28, 2))
-        ctk.CTkLabel(panel, text="🎉  You Passed!",
-                     font=("Helvetica", 40, "bold"), text_color=C["accent_glow"]).pack(pady=(4, 4))
+                     font=("Helvetica", 12), text_color=C["text_dim"]).pack(pady=(56, 4))
+        ctk.CTkLabel(panel, text="You Passed!",
+                     font=("Helvetica", 36, "bold"), text_color=C["green"]).pack(pady=(2, 6))
 
         stars_text = "★" * _score_stars(pct) + "☆" * (3 - _score_stars(pct))
         ctk.CTkLabel(panel, text=stars_text,
-                     font=("Helvetica", 32), text_color=C["gold"]).pack(pady=(4, 18))
+                     font=("Helvetica", 28), text_color=C["gold"]).pack(pady=(2, 16))
 
-        stats = GlowCard(panel, fg_color=C["surface"], corner_radius=12)
-        stats.pack(padx=30, fill="x")
+        stats = GlowCard(panel, fg_color=C["card"], corner_radius=10)
+        stats.pack(padx=24, fill="x")
 
         row = ctk.CTkFrame(stats, fg_color="transparent")
-        row.pack(pady=14, padx=20)
+        row.pack(pady=12, padx=16)
         for label, value, color in [
             ("Score", f"{pct}%", C["accent_glow"]),
             ("Correct", f"{correct}/{total}", C["green"]),
             ("HP Left", f"{self.hp}/{self.max_hp}", C["gold"]),
             ("Time", time_str, C["teal"]),
         ]:
-            col_frame = ctk.CTkFrame(row, fg_color="transparent", width=130)
-            col_frame.pack(side="left", padx=10)
-            ctk.CTkLabel(col_frame, text=value, font=("Helvetica", 22, "bold"),
+            col_frame = ctk.CTkFrame(row, fg_color="transparent", width=140)
+            col_frame.pack(side="left", padx=8)
+            ctk.CTkLabel(col_frame, text=value, font=("Helvetica", 20, "bold"),
                          text_color=color).pack()
-            ctk.CTkLabel(col_frame, text=label, font=("Helvetica", 11),
+            ctk.CTkLabel(col_frame, text=label, font=("Helvetica", 10),
                          text_color=C["text_muted"]).pack()
 
         btn_row = ctk.CTkFrame(panel, fg_color="transparent")
-        btn_row.pack(pady=24)
+        btn_row.pack(pady=20)
 
         current_level = int(self.level_data.get("level", 1))
         next_level_num = current_level + 1
@@ -969,75 +970,82 @@ class GameFrame(ctk.CTkFrame):
                 self.master.show_level_select()
 
         ModernButton(btn_row, text="Retry", variant="secondary",
-                     width=160, height=46, font=("Helvetica", 15),
-                     command=do_retry).pack(side="left", padx=8)
+                     width=140, height=42, font=("Helvetica", 14),
+                     command=do_retry).pack(side="left", padx=6)
 
         next_btn = ModernButton(btn_row, text="Next Level ▶", variant="primary",
-                                width=180, height=46, font=("Helvetica", 15, "bold"),
+                                width=160, height=42, font=("Helvetica", 14, "bold"),
                                 command=do_next)
-        next_btn.pack(side="left", padx=8)
+        next_btn.pack(side="left", padx=6)
         if not can_next:
             next_btn.configure(state="disabled", fg_color=C["text_muted"])
 
         ModernButton(btn_row, text="Level Select", variant="ghost",
-                     width=160, height=46, font=("Helvetica", 15),
-                     command=self.master.show_level_select).pack(side="left", padx=8)
+                     width=140, height=42, font=("Helvetica", 14),
+                     command=self.master.show_level_select).pack(side="left", padx=6)
 
     def _show_fail_panel(self, correct, total, pct, wrong_words):
         for w in self.winfo_children():
             w.destroy()
 
-        self.configure(fg_color=C["fail_bg"])
+        self.configure(fg_color=C["bg"])
 
-        panel = GlowCard(self, width=700, height=520, corner_radius=24,
+        # Minimalist fail panel
+        panel = GlowCard(self, width=640, height=480, corner_radius=20,
                          fg_color=C["surface"])
         panel.place(relx=0.5, rely=0.5, anchor="center")
 
         level_num = int(self.level_data.get("level", 1))
         level_title = self.level_data.get("title", "")
 
-        ctk.CTkLabel(panel, text=f"Level {level_num}  ·  {level_title}",
-                     font=("Helvetica", 14), text_color=C["text_muted"]).pack(pady=(28, 2))
-        ctk.CTkLabel(panel, text="⚠  Try Again",
-                     font=("Helvetica", 38, "bold"), text_color=C["red"]).pack(pady=(4, 2))
-        ctk.CTkLabel(panel, text="You're close — keep practising!",
-                     font=("Helvetica", 14), text_color=C["text_dim"]).pack(pady=(2, 14))
+        # Simple badge
+        badge = ctk.CTkFrame(panel, fg_color=C["red"], corner_radius=20, width=60, height=60)
+        badge.place(relx=0.5, rely=0.12, anchor="center")
+        ctk.CTkLabel(badge, text="!", font=("Helvetica", 32, "bold"),
+                     text_color=C["white"]).place(relx=0.5, rely=0.5, anchor="center")
 
-        stats = GlowCard(panel, fg_color=C["card"], corner_radius=12)
-        stats.pack(padx=30, fill="x")
+        ctk.CTkLabel(panel, text=f"Level {level_num}  ·  {level_title}",
+                     font=("Helvetica", 12), text_color=C["text_muted"]).pack(pady=(56, 4))
+        ctk.CTkLabel(panel, text="Try Again",
+                     font=("Helvetica", 34, "bold"), text_color=C["red"]).pack(pady=(2, 4))
+        ctk.CTkLabel(panel, text="Keep practising — you're close!",
+                     font=("Helvetica", 13), text_color=C["text_dim"]).pack(pady=(2, 16))
+
+        stats = GlowCard(panel, fg_color=C["card"], corner_radius=10)
+        stats.pack(padx=24, fill="x")
         ctk.CTkLabel(stats, text=f"Correct: {correct} / {total}",
-                     font=("Helvetica", 18, "bold"),
-                     text_color=C["text"]).pack(pady=10)
+                     font=("Helvetica", 16, "bold"),
+                     text_color=C["text"]).pack(pady=12)
 
         if wrong_words:
             wrong_outer = GlowCard(panel, fg_color=C["card"], corner_radius=10)
-            wrong_outer.pack(fill="x", padx=28, pady=(14, 4))
+            wrong_outer.pack(fill="x", padx=24, pady=(10, 4))
             ctk.CTkLabel(wrong_outer, text="Words to review:",
-                         font=("Helvetica", 13, "bold"),
+                         font=("Helvetica", 12, "bold"),
                          text_color=C["red"]).pack(anchor="w", padx=12, pady=(8, 4))
             grid_f = ctk.CTkFrame(wrong_outer, fg_color="transparent")
             grid_f.pack(padx=12, pady=(0, 10))
-            for idx, w in enumerate(wrong_words[:10]):
+            for idx, w in enumerate(wrong_words[:9]):
                 r, c_ = divmod(idx, 3)
                 chip = ctk.CTkFrame(grid_f, fg_color=C["red_dim"], corner_radius=8,
-                                    width=170, height=34)
-                chip.grid(row=r, column=c_, padx=5, pady=5)
-                ctk.CTkLabel(chip, text=w, font=("Helvetica", 13, "bold"),
+                                    width=180, height=32)
+                chip.grid(row=r, column=c_, padx=4, pady=4)
+                ctk.CTkLabel(chip, text=w, font=("Helvetica", 12, "bold"),
                              text_color=C["text"]).place(relx=0.5, rely=0.5, anchor="center")
 
         btn_row = ctk.CTkFrame(panel, fg_color="transparent")
-        btn_row.pack(pady=20)
+        btn_row.pack(pady=18)
 
         def do_retry():
             lnum = int(self.level_data.get("level", 1))
             self.master.show_game(self.level_path, hp=3 + (lnum - 1))
 
         ModernButton(btn_row, text="Retry Level", variant="primary",
-                     width=180, height=46, font=("Helvetica", 15, "bold"),
-                     command=do_retry).pack(side="left", padx=10)
+                     width=160, height=42, font=("Helvetica", 14, "bold"),
+                     command=do_retry).pack(side="left", padx=8)
         ModernButton(btn_row, text="Level Select", variant="ghost",
-                     width=180, height=46, font=("Helvetica", 15),
-                     command=self.master.show_level_select).pack(side="left", padx=10)
+                     width=160, height=42, font=("Helvetica", 14),
+                     command=self.master.show_level_select).pack(side="left", padx=8)
 
 
 # ── Definition Match Game ──────────────────────────────────────────────────────
@@ -1049,6 +1057,7 @@ class DefinitionMatchFrame(ctk.CTkFrame):
         self.level_path = level_path
         self.wrong_words = []
         self.level_start_time = time.time()
+        self._timer = None
 
         with open(resource_path(level_path), "r", encoding="utf-8") as f:
             data = json.load(f)
@@ -1071,30 +1080,36 @@ class DefinitionMatchFrame(ctk.CTkFrame):
 
         self._build_ui()
         self.show_question()
-        self._start_timer()
+        if self._timer:
+            self._timer.start(callback=self._on_timeout)
+
+    def _on_timeout(self):
+        """Handle timer timeout."""
+        self.show_score()
 
     def _build_ui(self):
-        header = ctk.CTkFrame(self, fg_color=C["surface"], height=72, corner_radius=0)
+        header = ctk.CTkFrame(self, fg_color=C["surface"], height=64, corner_radius=0)
         header.pack(fill="x")
         header.pack_propagate(False)
 
         header_inner = ctk.CTkFrame(header, fg_color="transparent")
-        header_inner.pack(side="left", fill="both", expand=True, padx=24)
+        header_inner.pack(side="left", fill="both", expand=True, padx=20)
 
         lv = self.level_data.get("level", "")
         title_txt = self.level_data.get("title", "")
         ctk.CTkLabel(header_inner,
                      text=f"Level {lv}  ·  {title_txt}",
-                     font=("Helvetica", 18, "bold"),
-                     text_color=C["text"]).pack(side="left", pady=18)
+                     font=("Helvetica", 16, "bold"),
+                     text_color=C["text"]).pack(side="left", pady=16)
 
         ModernButton(
             header, text="✕  Quit", variant="ghost",
-            width=110, height=38, font=("Helvetica", 13),
+            width=100, height=34, font=("Helvetica", 12),
             command=self.master.show_main_menu,
-        ).pack(side="right", padx=20, pady=16)
+        ).pack(side="right", padx=16, pady=14)
 
-        status_bar = ctk.CTkFrame(self, fg_color=C["panel"], height=52, corner_radius=0)
+        # Status bar with prominent timer
+        status_bar = ctk.CTkFrame(self, fg_color=C["panel"], height=48, corner_radius=0)
         status_bar.pack(fill="x")
         status_bar.pack_propagate(False)
 
@@ -1102,44 +1117,46 @@ class DefinitionMatchFrame(ctk.CTkFrame):
         sb_inner.pack(expand=True, fill="both")
         sb_inner.columnconfigure(0, weight=1)
         sb_inner.columnconfigure(1, weight=0)
-        sb_inner.columnconfigure(2, weight=1)
+        sb_inner.columnconfigure(2, weight=0)
+        sb_inner.columnconfigure(3, weight=1)
 
         self._hp_display = HpDisplay(sb_inner, max_hp=self.max_hp)
-        self._hp_display.grid(row=0, column=0, padx=30, pady=8, sticky="w")
+        self._hp_display.grid(row=0, column=0, padx=24, pady=6, sticky="w")
 
         self._counter_label = ctk.CTkLabel(
             sb_inner,
             text="",
-            font=("Helvetica", 13, "bold"),
+            font=("Helvetica", 12, "bold"),
             text_color=C["text_dim"],
         )
-        self._counter_label.grid(row=0, column=1, pady=8)
+        self._counter_label.grid(row=0, column=1, padx=12, pady=6)
 
-        self._timer_arc = TimerArc(sb_inner, size=38, bg_color=C["panel"])
-        self._timer_arc.grid(row=0, column=2, padx=30, pady=7, sticky="e")
+        # Prominent timer in center
+        self._timer = ProminentTimer(sb_inner, max_time=self.max_time)
+        self._timer.grid(row=0, column=2, padx=20, pady=4)
 
         body = ctk.CTkFrame(self, fg_color=C["bg"])
         body.pack(fill="both", expand=True)
 
-        question_card = GlowCard(body, fg_color=C["card"], corner_radius=18)
-        question_card.pack(padx=120, pady=(34, 20), fill="x")
+        question_card = GlowCard(body, fg_color=C["card"], corner_radius=16)
+        question_card.pack(padx=100, pady=(28, 16), fill="x")
 
         prompt_lbl = ctk.CTkLabel(question_card, text="What word is being described?",
-                                   font=("Helvetica", 13), text_color=C["text_muted"])
-        prompt_lbl.pack(pady=(18, 4))
+                                   font=("Helvetica", 12), text_color=C["text_muted"])
+        prompt_lbl.pack(pady=(16, 4))
 
         self.question_label = ctk.CTkLabel(
             question_card,
             text="",
-            font=("Helvetica", 22, "bold"),
+            font=("Helvetica", 20, "bold"),
             text_color=C["text"],
-            wraplength=860,
+            wraplength=800,
             justify="center",
         )
-        self.question_label.pack(pady=(0, 22))
+        self.question_label.pack(pady=(0, 18))
 
         options_grid = ctk.CTkFrame(body, fg_color="transparent")
-        options_grid.pack(pady=10)
+        options_grid.pack(pady=8)
 
         self.option_buttons = []
         for i in range(4):
@@ -1147,11 +1164,11 @@ class DefinitionMatchFrame(ctk.CTkFrame):
                 options_grid,
                 text="",
                 variant="secondary",
-                width=430, height=80,
-                font=("Helvetica", 18, "bold"),
+                width=400, height=72,
+                font=("Helvetica", 17, "bold"),
             )
             r, c = divmod(i, 2)
-            btn.grid(row=r, column=c, padx=16, pady=12)
+            btn.grid(row=r, column=c, padx=14, pady=10)
             self.option_buttons.append(btn)
 
     def show_question(self):
@@ -1213,13 +1230,17 @@ class DefinitionMatchFrame(ctk.CTkFrame):
         self.current_index += 1
         self.show_question()
 
-    def _start_timer(self):
-        self._timer_arc.update_arc(self.time_left, self.max_time)
-        if self.time_left > 0:
-            self.time_left -= 1
-            self.after(1000, self._start_timer)
-        else:
-            self.show_score()
+    # Removed _start_timer - now handled by ProminentTimer component
+
+    def cleanup(self):
+        """Clean up timer when frame is destroyed."""
+        if self._timer:
+            self._timer.stop()
+
+    def destroy(self):
+        """Override destroy to ensure cleanup."""
+        self.cleanup()
+        super().destroy()
 
     def show_score(self):
         correct = self.correct_count
@@ -1245,45 +1266,49 @@ class DefinitionMatchFrame(ctk.CTkFrame):
         for w in self.winfo_children():
             w.destroy()
 
-        self.configure(fg_color=C["success_bg"])
+        self.configure(fg_color=C["bg"])
 
-        confetti = Confetti(self, width=APP_WIDTH, height=APP_HEIGHT)
-        confetti.place(x=0, y=0)
-
-        panel = GlowCard(self, width=680, height=500, corner_radius=24, fg_color=C["card"])
+        # Minimalist success panel
+        panel = GlowCard(self, width=640, height=460, corner_radius=20, fg_color=C["surface"])
         panel.place(relx=0.5, rely=0.5, anchor="center")
 
         level_num = int(self.level_data.get("level", 1))
         level_title = self.level_data.get("title", "")
 
+        # Simple badge
+        badge = ctk.CTkFrame(panel, fg_color=C["green"], corner_radius=20, width=60, height=60)
+        badge.place(relx=0.5, rely=0.12, anchor="center")
+        ctk.CTkLabel(badge, text="✓", font=("Helvetica", 32, "bold"),
+                     text_color=C["white"]).place(relx=0.5, rely=0.5, anchor="center")
+
         ctk.CTkLabel(panel, text=f"Level {level_num}  ·  {level_title}",
-                     font=("Helvetica", 14), text_color=C["text_muted"]).pack(pady=(28, 2))
-        ctk.CTkLabel(panel, text="🎉  You Passed!",
-                     font=("Helvetica", 40, "bold"), text_color=C["accent_glow"]).pack(pady=(4, 2))
+                     font=("Helvetica", 12), text_color=C["text_muted"]).pack(pady=(56, 4))
+        ctk.CTkLabel(panel, text="You Passed!",
+                     font=("Helvetica", 36, "bold"), text_color=C["green"]).pack(pady=(2, 6))
 
         stars_text = "★" * _score_stars(pct) + "☆" * (3 - _score_stars(pct))
         ctk.CTkLabel(panel, text=stars_text,
-                     font=("Helvetica", 30), text_color=C["gold"]).pack(pady=(2, 16))
+                     font=("Helvetica", 28), text_color=C["gold"]).pack(pady=(2, 14))
 
-        stats = GlowCard(panel, fg_color=C["surface"], corner_radius=12)
-        stats.pack(padx=30, fill="x")
+        stats = GlowCard(panel, fg_color=C["card"], corner_radius=10)
+        stats.pack(padx=24, fill="x")
 
         row = ctk.CTkFrame(stats, fg_color="transparent")
-        row.pack(pady=14, padx=20)
+        row.pack(pady=12, padx=16)
         for label, value, color in [
             ("Score", f"{pct}%", C["accent_glow"]),
             ("Correct", f"{correct}/{total}", C["green"]),
             ("Time", f"{minutes}m {seconds}s", C["teal"]),
         ]:
-            col_frame = ctk.CTkFrame(row, fg_color="transparent", width=160)
-            col_frame.pack(side="left", padx=12)
-            ctk.CTkLabel(col_frame, text=value, font=("Helvetica", 22, "bold"),
+            col_frame = ctk.CTkFrame(row, fg_color="transparent", width=180)
+            col_frame.pack(side="left", padx=10)
+            ctk.CTkLabel(col_frame, text=value, font=("Helvetica", 20, "bold"),
                          text_color=color).pack()
-            ctk.CTkLabel(col_frame, text=label, font=("Helvetica", 11),
+            ctk.CTkLabel(col_frame, text=label, font=("Helvetica", 10),
                          text_color=C["text_muted"]).pack()
 
         btn_row = ctk.CTkFrame(panel, fg_color="transparent")
-        btn_row.pack(pady=22)
+        btn_row.pack(pady=18)
 
         current_level = int(self.level_data.get("level", 1))
         next_level_num = current_level + 1
@@ -1302,70 +1327,77 @@ class DefinitionMatchFrame(ctk.CTkFrame):
                 self.master.show_definition_level_select()
 
         ModernButton(btn_row, text="Retry", variant="secondary",
-                     width=150, height=46, font=("Helvetica", 15),
-                     command=do_retry).pack(side="left", padx=8)
+                     width=140, height=42, font=("Helvetica", 14),
+                     command=do_retry).pack(side="left", padx=6)
 
         next_btn = ModernButton(btn_row, text="Next Level ▶", variant="primary",
-                                width=180, height=46, font=("Helvetica", 15, "bold"),
+                                width=160, height=42, font=("Helvetica", 14, "bold"),
                                 command=do_next)
-        next_btn.pack(side="left", padx=8)
+        next_btn.pack(side="left", padx=6)
         if not can_next:
             next_btn.configure(state="disabled", fg_color=C["text_muted"])
 
         ModernButton(btn_row, text="Level Select", variant="ghost",
-                     width=160, height=46, font=("Helvetica", 15),
-                     command=self.master.show_definition_level_select).pack(side="left", padx=8)
+                     width=140, height=42, font=("Helvetica", 14),
+                     command=self.master.show_definition_level_select).pack(side="left", padx=6)
 
     def _show_fail(self, correct, total, pct):
         for w in self.winfo_children():
             w.destroy()
 
-        self.configure(fg_color=C["fail_bg"])
+        self.configure(fg_color=C["bg"])
 
-        panel = GlowCard(self, width=700, height=500, corner_radius=24, fg_color=C["surface"])
+        # Minimalist fail panel
+        panel = GlowCard(self, width=640, height=460, corner_radius=20, fg_color=C["surface"])
         panel.place(relx=0.5, rely=0.5, anchor="center")
 
         level_num = int(self.level_data.get("level", 1))
         level_title = self.level_data.get("title", "")
 
-        ctk.CTkLabel(panel, text=f"Level {level_num}  ·  {level_title}",
-                     font=("Helvetica", 14), text_color=C["text_muted"]).pack(pady=(28, 2))
-        ctk.CTkLabel(panel, text="⚠  Try Again",
-                     font=("Helvetica", 38, "bold"), text_color=C["red"]).pack(pady=(4, 2))
-        ctk.CTkLabel(panel, text="Keep going — you'll get it!",
-                     font=("Helvetica", 14), text_color=C["text_dim"]).pack(pady=(2, 14))
+        # Simple badge
+        badge = ctk.CTkFrame(panel, fg_color=C["red"], corner_radius=20, width=60, height=60)
+        badge.place(relx=0.5, rely=0.12, anchor="center")
+        ctk.CTkLabel(badge, text="!", font=("Helvetica", 32, "bold"),
+                     text_color=C["white"]).place(relx=0.5, rely=0.5, anchor="center")
 
-        stats = GlowCard(panel, fg_color=C["card"], corner_radius=12)
-        stats.pack(padx=30, fill="x")
+        ctk.CTkLabel(panel, text=f"Level {level_num}  ·  {level_title}",
+                     font=("Helvetica", 12), text_color=C["text_muted"]).pack(pady=(56, 4))
+        ctk.CTkLabel(panel, text="Try Again",
+                     font=("Helvetica", 34, "bold"), text_color=C["red"]).pack(pady=(2, 4))
+        ctk.CTkLabel(panel, text="Keep going — you'll get it!",
+                     font=("Helvetica", 13), text_color=C["text_dim"]).pack(pady=(2, 14))
+
+        stats = GlowCard(panel, fg_color=C["card"], corner_radius=10)
+        stats.pack(padx=24, fill="x")
         ctk.CTkLabel(stats, text=f"Correct: {correct} / {total}",
-                     font=("Helvetica", 18, "bold"), text_color=C["text"]).pack(pady=10)
+                     font=("Helvetica", 16, "bold"), text_color=C["text"]).pack(pady=12)
 
         if self.wrong_words:
             wrong_outer = GlowCard(panel, fg_color=C["card"], corner_radius=10)
-            wrong_outer.pack(fill="x", padx=28, pady=(12, 4))
+            wrong_outer.pack(fill="x", padx=24, pady=(10, 4))
             ctk.CTkLabel(wrong_outer, text="Words to review:",
-                         font=("Helvetica", 13, "bold"), text_color=C["red"]).pack(
+                         font=("Helvetica", 12, "bold"), text_color=C["red"]).pack(
                              anchor="w", padx=12, pady=(8, 4))
             grid_f = ctk.CTkFrame(wrong_outer, fg_color="transparent")
             grid_f.pack(padx=12, pady=(0, 10))
-            for idx, w in enumerate(self.wrong_words[:12]):
+            for idx, w in enumerate(self.wrong_words[:9]):
                 r, c_ = divmod(idx, 3)
                 chip = ctk.CTkFrame(grid_f, fg_color=C["red_dim"], corner_radius=8,
-                                    width=170, height=34)
-                chip.grid(row=r, column=c_, padx=5, pady=5)
-                ctk.CTkLabel(chip, text=w, font=("Helvetica", 13, "bold"),
+                                    width=180, height=32)
+                chip.grid(row=r, column=c_, padx=4, pady=4)
+                ctk.CTkLabel(chip, text=w, font=("Helvetica", 12, "bold"),
                              text_color=C["text"]).place(relx=0.5, rely=0.5, anchor="center")
 
         btn_row = ctk.CTkFrame(panel, fg_color="transparent")
-        btn_row.pack(pady=20)
+        btn_row.pack(pady=18)
 
         ModernButton(btn_row, text="Retry Level", variant="primary",
-                     width=180, height=46, font=("Helvetica", 15, "bold"),
+                     width=160, height=42, font=("Helvetica", 14, "bold"),
                      command=lambda: self.master.show_definition_mode(self.level_path)).pack(
-                         side="left", padx=10)
+                         side="left", padx=8)
         ModernButton(btn_row, text="Level Select", variant="ghost",
-                     width=180, height=46, font=("Helvetica", 15),
-                     command=self.master.show_definition_level_select).pack(side="left", padx=10)
+                     width=160, height=42, font=("Helvetica", 14),
+                     command=self.master.show_definition_level_select).pack(side="left", padx=8)
 
 
 # ── App Controller ─────────────────────────────────────────────────────────────
