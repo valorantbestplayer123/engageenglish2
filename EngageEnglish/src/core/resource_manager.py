@@ -8,7 +8,7 @@ import sys
 import pygame
 from typing import Dict, Optional
 
-from constants import FONT_SELFIE, FONT_FALLBACK
+from core.constants import FONT_SELFIE, FONT_FALLBACK
 
 
 class ResourceManager:

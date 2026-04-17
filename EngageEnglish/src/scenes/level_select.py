@@ -9,7 +9,7 @@ from ui.button import Button
 from ui.card import Card
 from ui.label import Label, HorizontalAlign, VerticalAlign
 from ui.stars import Stars
-from constants import (Colors, MODE_SPEED, MODE_BREADTH, MODE_CONTEXT, MODE_RESILIENCE,
+from core.constants import (Colors, MODE_SPEED, MODE_BREADTH, MODE_CONTEXT, MODE_RESILIENCE,
                        MODE_NAMES, PADDING, FONT_SIZE_HEADER)
 
 

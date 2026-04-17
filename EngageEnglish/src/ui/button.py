@@ -5,7 +5,7 @@ Button component with hover effects and smooth animations.
 import pygame
 from typing import Callable, Optional, Tuple
 
-from constants import Colors, BUTTON_RADIUS, BUTTON_HOVER_DURATION
+from core.constants import Colors, BUTTON_RADIUS, BUTTON_HOVER_DURATION
 
 
 class Button:

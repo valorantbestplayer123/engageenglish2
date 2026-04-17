@@ -9,7 +9,7 @@ import glob
 from typing import Dict, List, Optional, Any
 from collections import OrderedDict
 
-from constants import SYNONYMS_DIR, DEFINITIONS_DIR, CONTEXT_DIR
+from core.constants import SYNONYMS_DIR, DEFINITIONS_DIR, CONTEXT_DIR
 
 
 class DataLoader:

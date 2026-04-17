@@ -7,7 +7,7 @@ import pygame
 from typing import Callable, Optional, Tuple
 from enum import Enum
 
-from constants import TRANSITION_FADE_DURATION, TRANSITION_SLIDE_DURATION
+from core.constants import TRANSITION_FADE_DURATION, TRANSITION_SLIDE_DURATION
 
 
 class TransitionType(Enum):

@@ -6,7 +6,7 @@ import pygame
 from typing import Tuple, Optional
 from enum import Enum
 
-from constants import Colors, FONT_SIZE_BODY
+from core.constants import Colors, FONT_SIZE_BODY
 
 
 class HorizontalAlign(Enum):

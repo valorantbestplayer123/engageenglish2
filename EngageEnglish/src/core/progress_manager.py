@@ -8,7 +8,7 @@ import json
 from datetime import datetime
 from typing import Dict, List, Optional, Any
 
-from constants import PROGRESS_FILE, MODE_SPEED, MODE_BREADTH, MODE_CONTEXT, MODE_RESILIENCE
+from core.constants import PROGRESS_FILE, MODE_SPEED, MODE_BREADTH, MODE_CONTEXT, MODE_RESILIENCE
 
 
 class ProgressManager:
