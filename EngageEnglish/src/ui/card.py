@@ -5,7 +5,7 @@ Card component with shadow and hover lift effects.
 import pygame
 from typing import Tuple, Optional
 
-from constants import Colors, CARD_RADIUS, SHADOW_OFFSET, SHADOW_BLUR, CARD_LIFT_DURATION
+from core.constants import Colors, CARD_RADIUS, SHADOW_OFFSET, SHADOW_BLUR, CARD_LIFT_DURATION
 
 
 class Card:

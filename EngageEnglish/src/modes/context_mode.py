@@ -10,7 +10,7 @@ from ui.button import Button
 from ui.label import Label, HorizontalAlign, VerticalAlign
 from ui.timer import Timer
 from ui.progress_bar import ProgressBar
-from constants import (Colors, QUESTION_TIME_SECONDS, DEFAULT_HP, FONT_SIZE_SUBHEADER,
+from core.constants import (Colors, QUESTION_TIME_SECONDS, DEFAULT_HP, FONT_SIZE_SUBHEADER,
                        FONT_SIZE_BODY)
 
 

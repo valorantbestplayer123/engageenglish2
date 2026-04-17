@@ -10,7 +10,7 @@ from ui.card import Card
 from ui.label import Label, HorizontalAlign, VerticalAlign
 from ui.progress_bar import ProgressBar
 from ui.stars import Stars
-from constants import (Colors, MODE_NAMES, FONT_SIZE_HEADER, FONT_SIZE_SUBHEADER,
+from core.constants import (Colors, MODE_NAMES, FONT_SIZE_HEADER, FONT_SIZE_SUBHEADER,
                        STAR_THRESHOLDS)
 
 

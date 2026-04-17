@@ -5,7 +5,7 @@ Star rating display component.
 import pygame
 from typing import Tuple
 
-from constants import Colors, GOLD_DIM
+from core.constants import Colors, GOLD_DIM
 
 
 class Stars:

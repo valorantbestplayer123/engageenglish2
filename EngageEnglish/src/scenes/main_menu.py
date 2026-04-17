@@ -8,7 +8,7 @@ from core.scene_base import SceneBase
 from ui.button import Button
 from ui.card import Card
 from ui.label import Label, HorizontalAlign, VerticalAlign
-from constants import (Colors, MODE_SPEED, MODE_BREADTH, MODE_CONTEXT, MODE_RESILIENCE,
+from core.constants import (Colors, MODE_SPEED, MODE_BREADTH, MODE_CONTEXT, MODE_RESILIENCE,
                        MODE_NAMES, MODE_DESCRIPTIONS, PADDING, FONT_SIZE_TITLE, FONT_SIZE_SUBHEADER)
 
 
