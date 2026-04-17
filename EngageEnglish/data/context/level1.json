@@ -1,0 +1,47 @@
+{
+  "level": 1,
+  "title": "Academic Context 1",
+  "instructions": "Complete each sentence with the correct word.",
+  "sentences": [
+    {
+      "text": "After a careful _____ of the data, the researchers concluded that the hypothesis was correct.",
+      "answer": "analysis",
+      "options": ["study", "examination", "review", "survey"]
+    },
+    {
+      "text": "The professor suggested a new _____ to solving the complex mathematical problem.",
+      "answer": "approach",
+      "options": ["method", "technique", "strategy", "plan"]
+    },
+    {
+      "text": "This particular _____ of science focuses on the behavior of subatomic particles.",
+      "answer": "area",
+      "options": ["field", "sector", "domain", "region"]
+    },
+    {
+      "text": "The teacher made a fair _____ of each student's presentation based on established criteria.",
+      "answer": "assessment",
+      "options": ["evaluation", "judgment", "review", "estimate"]
+    },
+    {
+      "text": "We must not _____ that everyone understands these basic concepts without explanation.",
+      "answer": "assume",
+      "options": ["believe", "presume", "suppose", "think"]
+    },
+    {
+      "text": "The committee's _____ on this matter will be final and binding for all members.",
+      "answer": "authority",
+      "options": ["power", "control", "influence", "command"]
+    },
+    {
+      "text": "The resources needed for this project are currently _____ for all team members.",
+      "answer": "available",
+      "options": ["accessible", "obtainable", "ready", "free"]
+    },
+    {
+      "text": "Regular exercise provides numerous health _____ including improved cardiovascular function.",
+      "answer": "benefits",
+      "options": ["advantages", "gains", "rewards", "improvements"]
+    }
+  ]
+}

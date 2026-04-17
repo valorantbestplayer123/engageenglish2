@@ -1,0 +1,47 @@
+{
+  "level": 2,
+  "title": "Academic Context 2",
+  "instructions": "Complete each sentence with the correct word.",
+  "sentences": [
+    {
+      "text": "The _____ of democracy is based on the idea that all citizens have equal rights.",
+      "answer": "concept",
+      "options": ["idea", "notion", "principle", "theory"]
+    },
+    {
+      "text": "The experimental results were _____ with the theoretical predictions.",
+      "answer": "consistent",
+      "options": ["regular", "uniform", "compatible", "matching"]
+    },
+    {
+      "text": "The Supreme Court ruled that the law was _____ and therefore invalid.",
+      "answer": "unconstitutional",
+      "options": ["illegal", "invalid", "unlawful", "forbidden"]
+    },
+    {
+      "text": "Understanding the historical _____ is crucial for interpreting this ancient text.",
+      "answer": "context",
+      "options": ["situation", "background", "environment", "circumstances"]
+    },
+    {
+      "text": "Both parties signed the _____ agreeing to all terms and conditions.",
+      "answer": "contract",
+      "options": ["agreement", "deal", "arrangement", "pact"]
+    },
+    {
+      "text": "The artist managed to _____ a unique style that influenced many others.",
+      "answer": "create",
+      "options": ["make", "produce", "develop", "generate"]
+    },
+    {
+      "text": "The researchers collected extensive _____ to support their conclusions.",
+      "answer": "data",
+      "options": ["information", "facts", "figures", "evidence"]
+    },
+    {
+      "text": "A clear _____ of terms is essential for effective communication.",
+      "answer": "definition",
+      "options": ["meaning", "explanation", "description", "interpretation"]
+    }
+  ]
+}
