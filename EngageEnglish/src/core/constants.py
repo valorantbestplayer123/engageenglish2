@@ -113,7 +113,6 @@ PROGRESS_FILE = "progress.json"
 # Sound effects
 SOUND_CORRECT = "assets/sounds/correct.wav"
 SOUND_WRONG = "assets/sounds/wrong.wav"
-SOUND_CLICK = "assets/sounds/click.wav"
 
 # Layout constants
 PADDING = 20
