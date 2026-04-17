@@ -1,0 +1,666 @@
+{
+  "level": 5,
+  "title": "AWL Sublist 5",
+  "questions": [
+    {
+      "word": "Academic",
+      "definition": "Relating to school, college, study or theory",
+      "options": [
+        "Whereas",
+        "Academic",
+        "License",
+        "Trend"
+      ],
+      "answer": "Academic"
+    },
+    {
+      "word": "Adjustment",
+      "definition": "Making small changes, or becoming suitable",
+      "options": [
+        "Draft",
+        "Aware",
+        "Adjustment",
+        "Marginal"
+      ],
+      "answer": "Adjustment"
+    },
+    {
+      "word": "Alter",
+      "definition": "To change the form or character of something",
+      "options": [
+        "Notion",
+        "Enable",
+        "Alter",
+        "Revenue"
+      ],
+      "answer": "Alter"
+    },
+    {
+      "word": "Amendment",
+      "definition": "A change made to the words of a text",
+      "options": [
+        "Amendment",
+        "Generation",
+        "Welfare",
+        "Image"
+      ],
+      "answer": "Amendment"
+    },
+    {
+      "word": "Aware",
+      "definition": "To have knowledge or be conscious of something",
+      "options": [
+        "Contact",
+        "Styles",
+        "Compounds",
+        "Aware"
+      ],
+      "answer": "Aware"
+    },
+    {
+      "word": "Capacity",
+      "definition": "The maximum that can be contained or produced",
+      "options": [
+        "Precise",
+        "Transition",
+        "Perspective",
+        "Capacity"
+      ],
+      "answer": "Capacity"
+    },
+    {
+      "word": "Challenge",
+      "definition": "Something needing effort in order to be done well",
+      "options": [
+        "Whereas",
+        "Liberal",
+        "Challenge",
+        "Marginal"
+      ],
+      "answer": "Challenge"
+    },
+    {
+      "word": "Clause",
+      "definition": "A group of words with a meaning, or a legal document",
+      "options": [
+        "Aware",
+        "Consultation",
+        "Ratio",
+        "Clause"
+      ],
+      "answer": "Clause"
+    },
+    {
+      "word": "Compounds",
+      "definition": "Substances made up of two or more elements",
+      "options": [
+        "Draft",
+        "Compounds",
+        "Energy",
+        "Liberal"
+      ],
+      "answer": "Compounds"
+    },
+    {
+      "word": "Conflict",
+      "definition": "Fighting, or disagreement between people or ideas",
+      "options": [
+        "Orientation",
+        "Conflict",
+        "Consultation",
+        "Revenue"
+      ],
+      "answer": "Conflict"
+    },
+    {
+      "word": "Consultation",
+      "definition": "A meeting to discuss something or seek advice",
+      "options": [
+        "Network",
+        "Monitoring",
+        "Transition",
+        "Consultation"
+      ],
+      "answer": "Consultation"
+    },
+    {
+      "word": "Contact",
+      "definition": "Communication, or when people or things touch",
+      "options": [
+        "Transition",
+        "Contact",
+        "Welfare",
+        "Evolution"
+      ],
+      "answer": "Contact"
+    },
+    {
+      "word": "Decline",
+      "definition": "To get weaker or diminish, or to refuse something",
+      "options": [
+        "Generation",
+        "Decline",
+        "Psychology",
+        "Prime"
+      ],
+      "answer": "Decline"
+    },
+    {
+      "word": "Discretion",
+      "definition": "Careful consideration for others, or the right to choose",
+      "options": [
+        "Energy",
+        "Transition",
+        "Monitoring",
+        "Discretion"
+      ],
+      "answer": "Discretion"
+    },
+    {
+      "word": "Draft",
+      "definition": "A piece of text or plan which is not in its final form",
+      "options": [
+        "Monitoring",
+        "Draft",
+        "Generated",
+        "Modified"
+      ],
+      "answer": "Draft"
+    },
+    {
+      "word": "Enable",
+      "definition": "To make something possible, practical or easy to do",
+      "options": [
+        "Alter",
+        "Rejected",
+        "Enable",
+        "Enforcement"
+      ],
+      "answer": "Enable"
+    },
+    {
+      "word": "Energy",
+      "definition": "Power or ability to be physically or mentally active",
+      "options": [
+        "Energy",
+        "Challenge",
+        "Discretion",
+        "Transition"
+      ],
+      "answer": "Energy"
+    },
+    {
+      "word": "Enforcement",
+      "definition": "To make or force something to happen or be accepted",
+      "options": [
+        "Challenge",
+        "Logic",
+        "Image",
+        "Enforcement"
+      ],
+      "answer": "Enforcement"
+    },
+    {
+      "word": "Entities",
+      "definition": "Things, real or abstract, which exist independently",
+      "options": [
+        "Perspective",
+        "Amendment",
+        "Entities",
+        "Transition"
+      ],
+      "answer": "Entities"
+    },
+    {
+      "word": "Equivalent",
+      "definition": "Being equal to or effectively the same as",
+      "options": [
+        "Generation",
+        "Equivalent",
+        "Generated",
+        "Network"
+      ],
+      "answer": "Equivalent"
+    },
+    {
+      "word": "Evolution",
+      "definition": "A gradual process of change, or Darwin's theory",
+      "options": [
+        "Evolution",
+        "Symbolic",
+        "Capacity",
+        "Entities"
+      ],
+      "answer": "Evolution"
+    },
+    {
+      "word": "Expansion",
+      "definition": "An increase in size of something",
+      "options": [
+        "Expansion",
+        "Equivalent",
+        "Perspective",
+        "Image"
+      ],
+      "answer": "Expansion"
+    },
+    {
+      "word": "Exposure",
+      "definition": "Being affected by something in a particular place",
+      "options": [
+        "Clause",
+        "Exposure",
+        "Compounds",
+        "Transition"
+      ],
+      "answer": "Exposure"
+    },
+    {
+      "word": "External",
+      "definition": "Relating to or existing outside",
+      "options": [
+        "Generation",
+        "Generated",
+        "External",
+        "Sustainable"
+      ],
+      "answer": "External"
+    },
+    {
+      "word": "Facilitate",
+      "definition": "To make something easy or easier to do",
+      "options": [
+        "Facilitate",
+        "Welfare",
+        "Perspective",
+        "Liberal"
+      ],
+      "answer": "Facilitate"
+    },
+    {
+      "word": "Fundamental",
+      "definition": "Basic, central, or more important than anything else",
+      "options": [
+        "Sustainable",
+        "Evolution",
+        "Trend",
+        "Fundamental"
+      ],
+      "answer": "Fundamental"
+    },
+    {
+      "word": "Generated",
+      "definition": "Caused something to exist",
+      "options": [
+        "Enforcement",
+        "Facilitate",
+        "Rejected",
+        "Generated"
+      ],
+      "answer": "Generated"
+    },
+    {
+      "word": "Generation",
+      "definition": "People of the same age, or the production of energy",
+      "options": [
+        "Rejected",
+        "Generation",
+        "Substitution",
+        "Prime"
+      ],
+      "answer": "Generation"
+    },
+    {
+      "word": "Image",
+      "definition": "A picture in the mind or formed by a mirror or lens",
+      "options": [
+        "Ratio",
+        "Generation",
+        "Adjustment",
+        "Image"
+      ],
+      "answer": "Image"
+    },
+    {
+      "word": "Liberal",
+      "definition": "Open minded and tolerant of others, or generous",
+      "options": [
+        "Liberal",
+        "Whereas",
+        "Ratio",
+        "Psychology"
+      ],
+      "answer": "Liberal"
+    },
+    {
+      "word": "License",
+      "definition": "A legal document giving permission to do or own",
+      "options": [
+        "Alter",
+        "License",
+        "Compounds",
+        "Clause"
+      ],
+      "answer": "License"
+    },
+    {
+      "word": "Logic",
+      "definition": "A way of thinking based on reason",
+      "options": [
+        "Orientation",
+        "Transition",
+        "Generation",
+        "Logic"
+      ],
+      "answer": "Logic"
+    },
+    {
+      "word": "Marginal",
+      "definition": "Small in amount or effect, or barely acceptable",
+      "options": [
+        "Monitoring",
+        "Ratio",
+        "Academic",
+        "Marginal"
+      ],
+      "answer": "Marginal"
+    },
+    {
+      "word": "Medical",
+      "definition": "Relating to the study or practice of medicine",
+      "options": [
+        "Notion",
+        "Adjustment",
+        "Medical",
+        "Perspective"
+      ],
+      "answer": "Medical"
+    },
+    {
+      "word": "Mental",
+      "definition": "Of the mind",
+      "options": [
+        "Draft",
+        "Mental",
+        "Amendment",
+        "Conflict"
+      ],
+      "answer": "Mental"
+    },
+    {
+      "word": "Modified",
+      "definition": "Changed just a little and usually for the better",
+      "options": [
+        "Enable",
+        "Transition",
+        "Welfare",
+        "Modified"
+      ],
+      "answer": "Modified"
+    },
+    {
+      "word": "Monitoring",
+      "definition": "Observing, recording or detecting using instruments",
+      "options": [
+        "Precise",
+        "Monitoring",
+        "Orientation",
+        "Trend"
+      ],
+      "answer": "Monitoring"
+    },
+    {
+      "word": "Network",
+      "definition": "A system of things or people which are interconnected",
+      "options": [
+        "Revenue",
+        "Clause",
+        "Enable",
+        "Network"
+      ],
+      "answer": "Network"
+    },
+    {
+      "word": "Notion",
+      "definition": "Idea, opinion or belief",
+      "options": [
+        "Orientation",
+        "Version",
+        "Notion",
+        "Discretion"
+      ],
+      "answer": "Notion"
+    },
+    {
+      "word": "Objective",
+      "definition": "Aim or purpose",
+      "options": [
+        "Image",
+        "Version",
+        "Objective",
+        "Marginal"
+      ],
+      "answer": "Objective"
+    },
+    {
+      "word": "Orientation",
+      "definition": "Direction or arrangement, aims, training or preparation",
+      "options": [
+        "Orientation",
+        "Equivalent",
+        "Energy",
+        "Liberal"
+      ],
+      "answer": "Orientation"
+    },
+    {
+      "word": "Perspective",
+      "definition": "A way of looking at or considering something",
+      "options": [
+        "Perspective",
+        "Logic",
+        "Enforcement",
+        "Capacity"
+      ],
+      "answer": "Perspective"
+    },
+    {
+      "word": "Precise",
+      "definition": "Exact or careful and accurate",
+      "options": [
+        "Amendment",
+        "Precise",
+        "Notion",
+        "Generated"
+      ],
+      "answer": "Precise"
+    },
+    {
+      "word": "Prime",
+      "definition": "The main or most important, or the best quality",
+      "options": [
+        "Styles",
+        "Notion",
+        "Psychology",
+        "Prime"
+      ],
+      "answer": "Prime"
+    },
+    {
+      "word": "Psychology",
+      "definition": "Study of how the mind works and affects behavior",
+      "options": [
+        "Energy",
+        "Psychology",
+        "Ratio",
+        "Contact"
+      ],
+      "answer": "Psychology"
+    },
+    {
+      "word": "Pursue",
+      "definition": "To follow, try to get, or try to discover information",
+      "options": [
+        "Mental",
+        "Pursue",
+        "Compounds",
+        "Ratio"
+      ],
+      "answer": "Pursue"
+    },
+    {
+      "word": "Ratio",
+      "definition": "A comparison of two things expressed as a number",
+      "options": [
+        "Ratio",
+        "Prime",
+        "Network",
+        "Target"
+      ],
+      "answer": "Ratio"
+    },
+    {
+      "word": "Rejected",
+      "definition": "Refused to accept, make use of, or give affection to",
+      "options": [
+        "Rejected",
+        "Logic",
+        "Conflict",
+        "Stability"
+      ],
+      "answer": "Rejected"
+    },
+    {
+      "word": "Revenue",
+      "definition": "Income that a company or government receives",
+      "options": [
+        "Revenue",
+        "Amendment",
+        "Entities",
+        "Orientation"
+      ],
+      "answer": "Revenue"
+    },
+    {
+      "word": "Stability",
+      "definition": "Resistance to change, or constancy of character",
+      "options": [
+        "Contact",
+        "Generated",
+        "Stability",
+        "Version"
+      ],
+      "answer": "Stability"
+    },
+    {
+      "word": "Styles",
+      "definition": "Types, expressions, or ways of doing something",
+      "options": [
+        "Psychology",
+        "Version",
+        "Styles",
+        "Ratio"
+      ],
+      "answer": "Styles"
+    },
+    {
+      "word": "Substitution",
+      "definition": "The replacement of one thing by another",
+      "options": [
+        "Mental",
+        "Substitution",
+        "Equivalent",
+        "Marginal"
+      ],
+      "answer": "Substitution"
+    },
+    {
+      "word": "Sustainable",
+      "definition": "Able to be continued or maintained",
+      "options": [
+        "Compounds",
+        "Sustainable",
+        "Objective",
+        "Clause"
+      ],
+      "answer": "Sustainable"
+    },
+    {
+      "word": "Symbolic",
+      "definition": "Representing something else, or ineffective",
+      "options": [
+        "Energy",
+        "Perspective",
+        "Revenue",
+        "Symbolic"
+      ],
+      "answer": "Symbolic"
+    },
+    {
+      "word": "Target",
+      "definition": "Aim, thing to be aimed at, or who something is for",
+      "options": [
+        "Academic",
+        "Target",
+        "Facilitate",
+        "Symbolic"
+      ],
+      "answer": "Target"
+    },
+    {
+      "word": "Transition",
+      "definition": "A process or period in which something changes",
+      "options": [
+        "Whereas",
+        "Entities",
+        "Transition",
+        "Consultation"
+      ],
+      "answer": "Transition"
+    },
+    {
+      "word": "Trend",
+      "definition": "Fashion, or change in people's behavior or attitude",
+      "options": [
+        "Psychology",
+        "Network",
+        "Whereas",
+        "Trend"
+      ],
+      "answer": "Trend"
+    },
+    {
+      "word": "Version",
+      "definition": "Specific variety, different from others or the original",
+      "options": [
+        "Entities",
+        "Generation",
+        "Version",
+        "Orientation"
+      ],
+      "answer": "Version"
+    },
+    {
+      "word": "Welfare",
+      "definition": "Financial help to the poor, or health and happiness",
+      "options": [
+        "Substitution",
+        "Monitoring",
+        "Fundamental",
+        "Welfare"
+      ],
+      "answer": "Welfare"
+    },
+    {
+      "word": "Whereas",
+      "definition": "But, compared with the fact that",
+      "options": [
+        "Pursue",
+        "Whereas",
+        "Clause",
+        "Fundamental"
+      ],
+      "answer": "Whereas"
+    }
+  ]
+}

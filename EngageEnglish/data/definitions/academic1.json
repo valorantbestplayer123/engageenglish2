@@ -1,0 +1,306 @@
+{
+  "level": 1,
+  "title": "Academic Word List 1",
+  "questions": [
+    {
+      "definition": "A detailed investigation of the parts of something",
+      "options": ["Analysis", "Approach", "Assessment", "Area"],
+      "answer": "Analysis"
+    },
+    {
+      "definition": "A way of considering or doing something",
+      "options": ["Approach", "Method", "Policy", "Procedure"],
+      "answer": "Approach"
+    },
+    {
+      "definition": "A subject or specialization, or part of it",
+      "options": ["Area", "Sector", "Section", "Environment"],
+      "answer": "Area"
+    },
+    {
+      "definition": "When you decide the value or quality of something",
+      "options": ["Assessment", "Estimate", "Evaluation", "Response"],
+      "answer": "Assessment"
+    },
+    {
+      "definition": "Accept something to be true without questioning it",
+      "options": ["Assume", "Indicate", "Interpretation", "Suggest"],
+      "answer": "Assume"
+    },
+    {
+      "definition": "An expert on a subject",
+      "options": ["Authority", "Principal", "Individual", "Role"],
+      "answer": "Authority"
+    },
+    {
+      "definition": "Able to be used",
+      "options": ["Available", "Accessible", "Specific", "Open"],
+      "answer": "Available"
+    },
+    {
+      "definition": "An advantage or good effect",
+      "options": ["Benefit", "Factor", "Function", "Role"],
+      "answer": "Benefit"
+    },
+    {
+      "definition": "An abstract or general idea",
+      "options": ["Concept", "Theory", "Principle", "Structure"],
+      "answer": "Concept"
+    },
+    {
+      "definition": "In agreement with expectations or other facts",
+      "options": ["Consistent", "Similar", "Specific", "Established"],
+      "answer": "Consistent"
+    },
+    {
+      "definition": "Relating to the laws and principles of a government",
+      "options": ["Constitutional", "Legal", "Legislation", "Policy"],
+      "answer": "Constitutional"
+    },
+    {
+      "definition": "The situation in which something exists or happens",
+      "options": ["Context", "Environment", "Sector", "Area"],
+      "answer": "Context"
+    },
+    {
+      "definition": "A legal agreement between people or groups",
+      "options": ["Contract", "Policy", "Procedure", "Legislation"],
+      "answer": "Contract"
+    },
+    {
+      "definition": "To make something new or invent something",
+      "options": ["Create", "Establish", "Derive", "Formulate"],
+      "answer": "Create"
+    },
+    {
+      "definition": "Information from which conclusions may be drawn",
+      "options": ["Data", "Evidence", "Factors", "Variables"],
+      "answer": "Data"
+    },
+    {
+      "definition": "An explanation of a word or phrase",
+      "options": ["Definition", "Interpretation", "Concept", "Theory"],
+      "answer": "Definition"
+    },
+    {
+      "definition": "Formed or developed from something else",
+      "options": ["Derived", "Created", "Established", "Generated"],
+      "answer": "Derived"
+    },
+    {
+      "definition": "The way in which things or people are spread about",
+      "options": ["Distribution", "Environment", "Sector", "Area"],
+      "answer": "Distribution"
+    },
+    {
+      "definition": "Relating to money or trade",
+      "options": ["Economic", "Financial", "Policy", "Major"],
+      "answer": "Economic"
+    },
+    {
+      "definition": "The conditions one lives in and their effects",
+      "options": ["Environment", "Context", "Sector", "Area"],
+      "answer": "Environment"
+    },
+    {
+      "definition": "Conventional or conforming to accepted standards",
+      "options": ["Established", "Consistent", "Principal", "Major"],
+      "answer": "Established"
+    },
+    {
+      "definition": "A guess of the size, number or amount of something",
+      "options": ["Estimate", "Assessment", "Evaluation", "Approximation"],
+      "answer": "Estimate"
+    },
+    {
+      "definition": "One or more reasons for believing something",
+      "options": ["Evidence", "Data", "Factors", "Variables"],
+      "answer": "Evidence"
+    },
+    {
+      "definition": "To send goods to another country",
+      "options": ["Export", "Import", "Distribution", "Transfer"],
+      "answer": "Export"
+    },
+    {
+      "definition": "Facts which contribute to the result of something",
+      "options": ["Factors", "Variables", "Evidence", "Data"],
+      "answer": "Factors"
+    },
+    {
+      "definition": "Relating to the management of money",
+      "options": ["Financial", "Economic", "Policy", "Legal"],
+      "answer": "Financial"
+    },
+    {
+      "definition": "A standard way of making or doing something",
+      "options": ["Formula", "Method", "Procedure", "Policy"],
+      "answer": "Formula"
+    },
+    {
+      "definition": "The purpose of something, or the duty of a person",
+      "options": ["Function", "Role", "Principal", "Purpose"],
+      "answer": "Function"
+    },
+    {
+      "definition": "Recognized something by saying what it is",
+      "options": ["Identified", "Indicated", "Assumed", "Defined"],
+      "answer": "Identified"
+    },
+    {
+      "definition": "Money earned by doing work or gained by investing",
+      "options": ["Income", "Benefit", "Revenue", "Financial"],
+      "answer": "Income"
+    },
+    {
+      "definition": "To show, point out, or make clear",
+      "options": ["Indicate", "Identify", "Interpret", "Assume"],
+      "answer": "Indicate"
+    },
+    {
+      "definition": "A single person or thing when compared to a group",
+      "options": ["Individual", "Principal", "Authority", "Role"],
+      "answer": "Individual"
+    },
+    {
+      "definition": "An explanation or opinion of what something means",
+      "options": ["Interpretation", "Definition", "Concept", "Theory"],
+      "answer": "Interpretation"
+    },
+    {
+      "definition": "Complicated or difficult to understand",
+      "options": ["Involved", "Complex", "Major", "Significant"],
+      "answer": "Involved"
+    },
+    {
+      "definition": "Problems that people are thinking or talking about",
+      "options": ["Issues", "Factors", "Variables", "Evidence"],
+      "answer": "Issues"
+    },
+    {
+      "definition": "Practical work which involves physical effort",
+      "options": ["Labor", "Work", "Task", "Function"],
+      "answer": "Labor"
+    },
+    {
+      "definition": "Related to or allowed by law",
+      "options": ["Legal", "Constitutional", "Legislation", "Policy"],
+      "answer": "Legal"
+    },
+    {
+      "definition": "A law or laws created by a government",
+      "options": ["Legislation", "Policy", "Procedure", "Contract"],
+      "answer": "Legislation"
+    },
+    {
+      "definition": "More important than others of the same type",
+      "options": ["Major", "Principal", "Significant", "Primary"],
+      "answer": "Major"
+    },
+    {
+      "definition": "A way of doing something",
+      "options": ["Method", "Procedure", "Approach", "Formula"],
+      "answer": "Method"
+    },
+    {
+      "definition": "To happen, often naturally or unexpectedly",
+      "options": ["Occur", "Happen", "Arise", "Result"],
+      "answer": "Occur"
+    },
+    {
+      "definition": "In proportion to a hundred",
+      "options": ["Percent", "Ratio", "Fraction", "Proportion"],
+      "answer": "Percent"
+    },
+    {
+      "definition": "Any length of time",
+      "options": ["Period", "Duration", "Interval", "Phase"],
+      "answer": "Period"
+    },
+    {
+      "definition": "An established practice or plan of what to do",
+      "options": ["Policy", "Procedure", "Method", "Legislation"],
+      "answer": "Policy"
+    },
+    {
+      "definition": "The first, main, or most important",
+      "options": ["Principal", "Major", "Primary", "Authority"],
+      "answer": "Principal"
+    },
+        {
+      "definition": "A course of action intended to achieve a result",
+      "options": ["Procedure", "Process", "Method", "Policy"],
+      "answer": "Procedure"
+    },
+    {
+      "definition": "A series of actions taken to achieve a result",
+      "options": ["Process", "Procedure", "Method", "Approach"],
+      "answer": "Process"
+    },
+    {
+      "definition": "Needed or made necessary",
+      "options": ["Required", "Essential", "Mandatory", "Compulsory"],
+      "answer": "Required"
+    },
+    {
+      "definition": "A detailed study of a subject",
+      "options": ["Research", "Analysis", "Investigation", "Study"],
+      "answer": "Research"
+    },
+    {
+      "definition": "An answer or reaction to a question or statement",
+      "options": ["Response", "Reply", "Reaction", "Answer"],
+      "answer": "Response"
+    },
+    {
+      "definition": "A function or part performed in a specific process",
+      "options": ["Role", "Function", "Duty", "Position"],
+      "answer": "Role"
+    },
+    {
+      "definition": "A distinct part of something",
+      "options": ["Section", "Sector", "Area", "Division"],
+      "answer": "Section"
+    },
+    {
+      "definition": "A geographic or economic area",
+      "options": ["Sector", "Area", "Region", "Field"],
+      "answer": "Sector"
+    },
+    {
+      "definition": "Noticeable, meaningful or important",
+      "options": ["Significant", "Major", "Principal", "Relevant"],
+      "answer": "Significant"
+    },
+    {
+      "definition": "Almost but not exactly the same",
+      "options": ["Similar", "Consistent", "Comparable", "Alike"],
+      "answer": "Similar"
+    },
+    {
+      "definition": "The cause of something or place it comes from",
+      "options": ["Source", "Origin", "Root", "Basis"],
+      "answer": "Source"
+    },
+    {
+      "definition": "Relating to one thing and not others",
+      "options": ["Specific", "Particular", "Individual", "Unique"],
+      "answer": "Specific"
+    },
+    {
+      "definition": "The way parts of a system or object are arranged",
+      "options": ["Structure", "Framework", "Organization", "System"],
+      "answer": "Structure"
+    },
+    {
+      "definition": "An organized system of accepted knowledge",
+      "options": ["Theory", "Concept", "Principle", "Idea"],
+      "answer": "Theory"
+    },
+    {
+      "definition": "One among a group of things which may change",
+      "options": ["Variable", "Factor", "Element", "Condition"],
+      "answer": "Variable"
+    }
+  ]
+}

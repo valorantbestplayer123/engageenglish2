@@ -1,0 +1,666 @@
+{
+  "level": 4,
+  "title": "AWL Sublist 4",
+  "questions": [
+    {
+      "word": "Access",
+      "definition": "The ability to get to or enter somewhere or something",
+      "options": [
+        "Contrast",
+        "Annual",
+        "Emerged",
+        "Access"
+      ],
+      "answer": "Access"
+    },
+    {
+      "word": "Adequate",
+      "definition": "Enough or barely enough",
+      "options": [
+        "Communication",
+        "Adequate",
+        "Implementation",
+        "Parallel"
+      ],
+      "answer": "Adequate"
+    },
+    {
+      "word": "Annual",
+      "definition": "Happening once a year",
+      "options": [
+        "Despite",
+        "Phase",
+        "Error",
+        "Annual"
+      ],
+      "answer": "Annual"
+    },
+    {
+      "word": "Apparent",
+      "definition": "Able to be understood, or seeming to exist",
+      "options": [
+        "Apparent",
+        "Conference",
+        "Series",
+        "Implementation"
+      ],
+      "answer": "Apparent"
+    },
+    {
+      "word": "Approximated",
+      "definition": "Came near to, or estimated",
+      "options": [
+        "Retained",
+        "Project",
+        "Granted",
+        "Approximated"
+      ],
+      "answer": "Approximated"
+    },
+    {
+      "word": "Attitudes",
+      "definition": "Feelings or opinions about someone or something",
+      "options": [
+        "Professional",
+        "Domestic",
+        "Attitudes",
+        "Goals"
+      ],
+      "answer": "Attitudes"
+    },
+    {
+      "word": "Attributed",
+      "definition": "Indicated the cause of something",
+      "options": [
+        "Prior",
+        "Attitudes",
+        "Sum",
+        "Attributed"
+      ],
+      "answer": "Attributed"
+    },
+    {
+      "word": "Civil",
+      "definition": "Relating to the ordinary people of a country",
+      "options": [
+        "Attitudes",
+        "Civil",
+        "Overall",
+        "Mechanism"
+      ],
+      "answer": "Civil"
+    },
+    {
+      "word": "Code",
+      "definition": "Regulations, or a set of symbols that mean something",
+      "options": [
+        "Promote",
+        "Obvious",
+        "Code",
+        "Debate"
+      ],
+      "answer": "Code"
+    },
+    {
+      "word": "Commitment",
+      "definition": "Willingness to spend time or energy on something",
+      "options": [
+        "Obvious",
+        "Status",
+        "Commitment",
+        "Implications"
+      ],
+      "answer": "Commitment"
+    },
+    {
+      "word": "Communication",
+      "definition": "The way living things send messages to each other",
+      "options": [
+        "Annual",
+        "Emerged",
+        "Communication",
+        "Ethnic"
+      ],
+      "answer": "Communication"
+    },
+    {
+      "word": "Concentration",
+      "definition": "The ability to think or focus carefully about one thing",
+      "options": [
+        "Retained",
+        "Parallel",
+        "Summary",
+        "Concentration"
+      ],
+      "answer": "Concentration"
+    },
+    {
+      "word": "Conference",
+      "definition": "A meeting or event with talks about a specific subject",
+      "options": [
+        "Parallel",
+        "Conference",
+        "Overall",
+        "Mechanism"
+      ],
+      "answer": "Conference"
+    },
+    {
+      "word": "Contrast",
+      "definition": "An obvious difference between two or more things",
+      "options": [
+        "Contrast",
+        "Series",
+        "Sum",
+        "Concentration"
+      ],
+      "answer": "Contrast"
+    },
+    {
+      "word": "Cycle",
+      "definition": "A series of events which repeat in a predictable order",
+      "options": [
+        "Code",
+        "Cycle",
+        "Conference",
+        "Job"
+      ],
+      "answer": "Cycle"
+    },
+    {
+      "word": "Debate",
+      "definition": "A serious discussion involving many people",
+      "options": [
+        "Option",
+        "Debate",
+        "Output",
+        "Obvious"
+      ],
+      "answer": "Debate"
+    },
+    {
+      "word": "Despite",
+      "definition": "Without taking notice of or being influenced by",
+      "options": [
+        "Parallel",
+        "Dimensions",
+        "Despite",
+        "Cycle"
+      ],
+      "answer": "Despite"
+    },
+    {
+      "word": "Dimensions",
+      "definition": "Aspects, or the length, width and height of something",
+      "options": [
+        "Subsequent",
+        "Domestic",
+        "Dimensions",
+        "Retained"
+      ],
+      "answer": "Dimensions"
+    },
+    {
+      "word": "Domestic",
+      "definition": "Relating to home or country",
+      "options": [
+        "Communication",
+        "Undertaken",
+        "Ethnic",
+        "Domestic"
+      ],
+      "answer": "Domestic"
+    },
+    {
+      "word": "Emerged",
+      "definition": "Became known, or appeared out of something",
+      "options": [
+        "Code",
+        "Promote",
+        "Implications",
+        "Emerged"
+      ],
+      "answer": "Emerged"
+    },
+    {
+      "word": "Error",
+      "definition": "Mistake or wrong decision",
+      "options": [
+        "Overall",
+        "Ethnic",
+        "Error",
+        "Statistics"
+      ],
+      "answer": "Error"
+    },
+    {
+      "word": "Ethnic",
+      "definition": "Of a national, racial, religious or linguistic group",
+      "options": [
+        "Resolution",
+        "Ethnic",
+        "Job",
+        "Summary"
+      ],
+      "answer": "Ethnic"
+    },
+    {
+      "word": "Goals",
+      "definition": "Aims, purposes or targets",
+      "options": [
+        "Label",
+        "Option",
+        "Goals",
+        "Promote"
+      ],
+      "answer": "Goals"
+    },
+    {
+      "word": "Granted",
+      "definition": "Gave or allowed someone to do something",
+      "options": [
+        "Obvious",
+        "Commitment",
+        "Granted",
+        "Despite"
+      ],
+      "answer": "Granted"
+    },
+    {
+      "word": "Hence",
+      "definition": "Therefore, this is the reason why",
+      "options": [
+        "Hence",
+        "Integration",
+        "Promote",
+        "Project"
+      ],
+      "answer": "Hence"
+    },
+    {
+      "word": "Hypothesis",
+      "definition": "An idea based on observation but not yet proven",
+      "options": [
+        "Emerged",
+        "Hypothesis",
+        "Parallel",
+        "Commitment"
+      ],
+      "answer": "Hypothesis"
+    },
+    {
+      "word": "Implementation",
+      "definition": "The realization of a plan, idea or policy",
+      "options": [
+        "Summary",
+        "Promote",
+        "Implementation",
+        "Attitudes"
+      ],
+      "answer": "Implementation"
+    },
+    {
+      "word": "Implications",
+      "definition": "The possible consequences an event may bring",
+      "options": [
+        "Code",
+        "Granted",
+        "Concentration",
+        "Implications"
+      ],
+      "answer": "Implications"
+    },
+    {
+      "word": "Imposed",
+      "definition": "Forced a rule, or made someone accept an idea",
+      "options": [
+        "Implications",
+        "Principle",
+        "Imposed",
+        "Overall"
+      ],
+      "answer": "Imposed"
+    },
+    {
+      "word": "Integration",
+      "definition": "To combine two or more things into a coherent whole",
+      "options": [
+        "Integration",
+        "Parameters",
+        "Overall",
+        "Output"
+      ],
+      "answer": "Integration"
+    },
+    {
+      "word": "Internal",
+      "definition": "Relating to or existing inside",
+      "options": [
+        "Professional",
+        "Internal",
+        "Regime",
+        "Occupational"
+      ],
+      "answer": "Internal"
+    },
+    {
+      "word": "Investigation",
+      "definition": "A detailed study of examination of a problem or crime",
+      "options": [
+        "Civil",
+        "Obvious",
+        "Ethnic",
+        "Investigation"
+      ],
+      "answer": "Investigation"
+    },
+    {
+      "word": "Job",
+      "definition": "Regular work, a piece of work, a responsibility or a task",
+      "options": [
+        "Internal",
+        "Job",
+        "Professional",
+        "Goals"
+      ],
+      "answer": "Job"
+    },
+    {
+      "word": "Label",
+      "definition": "Information about the object it is fixed to",
+      "options": [
+        "Error",
+        "Predicted",
+        "Label",
+        "Undertaken"
+      ],
+      "answer": "Label"
+    },
+    {
+      "word": "Mechanism",
+      "definition": "A process or sequence of steps within a system",
+      "options": [
+        "Debate",
+        "Attributed",
+        "Summary",
+        "Mechanism"
+      ],
+      "answer": "Mechanism"
+    },
+    {
+      "word": "Obvious",
+      "definition": "Easy to understand",
+      "options": [
+        "Obvious",
+        "Stress",
+        "Goals",
+        "Hypothesis"
+      ],
+      "answer": "Obvious"
+    },
+    {
+      "word": "Occupational",
+      "definition": "Relating to work",
+      "options": [
+        "Parallel",
+        "Apparent",
+        "Occupational",
+        "Commitment"
+      ],
+      "answer": "Occupational"
+    },
+    {
+      "word": "Option",
+      "definition": "Something available as a choice, or the right to choose",
+      "options": [
+        "Option",
+        "Resolution",
+        "Promote",
+        "Parameters"
+      ],
+      "answer": "Option"
+    },
+    {
+      "word": "Output",
+      "definition": "The end product, or the amount of something produced",
+      "options": [
+        "Cycle",
+        "Output",
+        "Error",
+        "Commitment"
+      ],
+      "answer": "Output"
+    },
+    {
+      "word": "Overall",
+      "definition": "In general, considering everything",
+      "options": [
+        "Promote",
+        "Apparent",
+        "Integration",
+        "Overall"
+      ],
+      "answer": "Overall"
+    },
+    {
+      "word": "Parallel",
+      "definition": "Similar, or of equal distance apart along two lengths",
+      "options": [
+        "Stress",
+        "Parallel",
+        "Ethnic",
+        "Annual"
+      ],
+      "answer": "Parallel"
+    },
+    {
+      "word": "Parameters",
+      "definition": "The facts or rules which limit how something is done",
+      "options": [
+        "Code",
+        "Parameters",
+        "Domestic",
+        "Dimensions"
+      ],
+      "answer": "Parameters"
+    },
+    {
+      "word": "Phase",
+      "definition": "A period of time, especially as part of a series",
+      "options": [
+        "Approximated",
+        "Phase",
+        "Principle",
+        "Predicted"
+      ],
+      "answer": "Phase"
+    },
+    {
+      "word": "Predicted",
+      "definition": "Said that something would happen in the future",
+      "options": [
+        "Dimensions",
+        "Promote",
+        "Subsequent",
+        "Predicted"
+      ],
+      "answer": "Predicted"
+    },
+    {
+      "word": "Principle",
+      "definition": "A basic truth or theory",
+      "options": [
+        "Option",
+        "Principle",
+        "Cycle",
+        "Communication"
+      ],
+      "answer": "Principle"
+    },
+    {
+      "word": "Prior",
+      "definition": "Coming before something else in time or importance",
+      "options": [
+        "Status",
+        "Output",
+        "Prior",
+        "Overall"
+      ],
+      "answer": "Prior"
+    },
+    {
+      "word": "Professional",
+      "definition": "Relating to or conforming to the standards of work",
+      "options": [
+        "Despite",
+        "Debate",
+        "Professional",
+        "Commitment"
+      ],
+      "answer": "Professional"
+    },
+    {
+      "word": "Project",
+      "definition": "Work or a study of a subject over a period of time",
+      "options": [
+        "Project",
+        "Commitment",
+        "Ethnic",
+        "Code"
+      ],
+      "answer": "Project"
+    },
+    {
+      "word": "Promote",
+      "definition": "To raise someone or something to a higher level",
+      "options": [
+        "Debate",
+        "Undertaken",
+        "Promote",
+        "Summary"
+      ],
+      "answer": "Promote"
+    },
+    {
+      "word": "Regime",
+      "definition": "A particular government or controlling group or system",
+      "options": [
+        "Access",
+        "Annual",
+        "Regime",
+        "Investigation"
+      ],
+      "answer": "Regime"
+    },
+    {
+      "word": "Resolution",
+      "definition": "A course of action which is decided purposefully",
+      "options": [
+        "Obvious",
+        "Despite",
+        "Resolution",
+        "Error"
+      ],
+      "answer": "Resolution"
+    },
+    {
+      "word": "Retained",
+      "definition": "Kept or continued to have",
+      "options": [
+        "Commitment",
+        "Hypothesis",
+        "Retained",
+        "Project"
+      ],
+      "answer": "Retained"
+    },
+    {
+      "word": "Series",
+      "definition": "A sequence of similar or related things",
+      "options": [
+        "Statistics",
+        "Series",
+        "Parameters",
+        "Conference"
+      ],
+      "answer": "Series"
+    },
+    {
+      "word": "Statistics",
+      "definition": "A branch of applied mathematics that analyzes data",
+      "options": [
+        "Retained",
+        "Parameters",
+        "Adequate",
+        "Statistics"
+      ],
+      "answer": "Statistics"
+    },
+    {
+      "word": "Status",
+      "definition": "The relative position of someone or something",
+      "options": [
+        "Imposed",
+        "Label",
+        "Status",
+        "Hence"
+      ],
+      "answer": "Status"
+    },
+    {
+      "word": "Stress",
+      "definition": "To give emphasis or special attention to something",
+      "options": [
+        "Implications",
+        "Stress",
+        "Investigation",
+        "Option"
+      ],
+      "answer": "Stress"
+    },
+    {
+      "word": "Subsequent",
+      "definition": "Happening after something else",
+      "options": [
+        "Commitment",
+        "Subsequent",
+        "Phase",
+        "Code"
+      ],
+      "answer": "Subsequent"
+    },
+    {
+      "word": "Sum",
+      "definition": "The total number or amount of things added together",
+      "options": [
+        "Implications",
+        "Sum",
+        "Hypothesis",
+        "Despite"
+      ],
+      "answer": "Sum"
+    },
+    {
+      "word": "Summary",
+      "definition": "A short description of the main points of something",
+      "options": [
+        "Phase",
+        "Stress",
+        "Summary",
+        "Granted"
+      ],
+      "answer": "Summary"
+    },
+    {
+      "word": "Undertaken",
+      "definition": "Done or committed to do with responsibility or effort",
+      "options": [
+        "Concentration",
+        "Series",
+        "Undertaken",
+        "Apparent"
+      ],
+      "answer": "Undertaken"
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "level": 3,
+  "title": "Academic Context 3",
+  "instructions": "Complete each sentence with the correct word.",
+  "sentences": [
+    {
+      "text": "Many modern medicines are _____ from natural plant compounds.",
+      "answer": "derived",
+      "options": ["created", "developed", "extracted", "obtained"]
+    },
+    {
+      "text": "The uneven _____ of resources led to significant economic disparities.",
+      "answer": "distribution",
+      "options": ["spread", "allocation", "dispersal", "division"]
+    },
+    {
+      "text": "The country experienced rapid _____ growth during the industrial revolution.",
+      "answer": "economic",
+      "options": ["financial", "commercial", "monetary", "business"]
+    },
+    {
+      "text": "Protecting the natural _____ is a responsibility we all share.",
+      "answer": "environment",
+      "options": ["surroundings", "ecosystem", "habitat", "nature"]
+    },
+    {
+      "text": "The _____ procedure for handling complaints has been in use for decades.",
+      "answer": "established",
+      "options": ["organized", "standard", "accepted", "recognized"]
+    },
+    {
+      "text": "The initial _____ of the project's cost proved to be significantly too low.",
+      "answer": "estimate",
+      "options": ["calculation", "assessment", "guess", "projection"]
+    },
+    {
+      "text": "There is compelling _____ that climate change is accelerating.",
+      "answer": "evidence",
+      "options": ["proof", "data", "indication", "sign"]
+    },
+    {
+      "text": "The company plans to _____ its products to new international markets.",
+      "answer": "export",
+      "options": ["trade", "ship", "sell", "distribute"]
+    }
+  ]
+}
