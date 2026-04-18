@@ -5,7 +5,7 @@ Timer component with visual countdown and urgency states.
 import pygame
 from typing import Tuple
 
-from core.constants import Colors, Colors, QUESTION_TIME_SECONDS, FONT_SIZE_HEADER
+from core.constants import Colors, QUESTION_TIME_SECONDS, FONT_SIZE_HEADER
 
 
 class Timer:

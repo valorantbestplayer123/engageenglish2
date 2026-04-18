@@ -5,7 +5,7 @@ Star rating display component.
 import pygame
 from typing import Tuple
 
-from core.constants import Colors, GOLD_DIM
+from core.constants import Colors
 
 
 class Stars:
@@ -43,7 +43,7 @@ class Stars:
                 color = Colors.GOLD
             else:
                 # Empty star
-                color = GOLD_DIM
+                color = Colors.GOLD_DIM
             
             self._draw_star(surface, star_x, star_y, self.star_size, color)
     
